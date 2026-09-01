@@ -742,6 +742,13 @@
     background:linear-gradient(155deg,#161a22,#0a0c11);border-radius:22px;padding:44px;position:relative;overflow:hidden;
     border:1px solid var(--border-dark);margin-bottom:56px;
   }
+  .release-hero.custom-rel{
+    background:linear-gradient(155deg,#1c212b,#11141b);
+    border-color:rgba(255,106,0,.15);
+  }
+  .release-hero.custom-rel::after{
+    background:radial-gradient(circle,rgba(255,255,255,.05),transparent 70%);
+  }
   .release-hero::after{content:"";position:absolute;right:-60px;top:-60px;width:260px;height:260px;background:radial-gradient(circle,rgba(255,106,0,.22),transparent 70%);}
   .release-top{display:flex;flex-wrap:wrap;gap:16px;align-items:center;justify-content:space-between;margin-bottom:28px;position:relative;z-index:1;}
   .release-badge{display:flex;align-items:center;gap:10px;}
@@ -894,7 +901,7 @@
     </nav>
 
     <div class="nav-right">
-      <span class="ver-badge"><span class="dot"></span> v1.2.0</span>
+      <span class="ver-badge"><span class="dot"></span> v1.2.1</span>
       <a href="#download" class="btn btn-primary btn-sm">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v13"/><path d="M6 11l6 6 6-6"/><path d="M4 21h16"/></svg>
         Download
@@ -925,7 +932,7 @@
       <div class="reveal in-view">
         <span class="eyebrow">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="width:14px;height:14px"><path d="M12 3v13"/><path d="M6 11l6 6 6-6"/><path d="M4 21h16"/></svg>
-          Versi Terbaru v1.2.0
+          Versi Terbaru v1.2.1
         </span>
         <h1>Download <span class="brand-word">BuildEra</span></h1>
         <p class="subtitle">Material &amp; Construction POS</p>
@@ -1045,14 +1052,14 @@
     <div class="section-head reveal">
       <span class="eyebrow" style="background:rgba(255,106,0,.12);color:var(--orange-2);border-color:rgba(255,106,0,.28)">Download</span>
       <h2>Dapatkan <span class="accent">BuildEra</span> sekarang</h2>
-      <p>Pilih metode instalasi yang paling sesuai dengan kebutuhan Anda.</p>
+      <p>Pilih metode instalasi yang paling sesuai dengan kebutuhan Anda. (Versi v1.2.1)</p>
     </div>
 
     <div class="release-hero reveal">
       <div class="release-top">
         <div class="release-badge">
           <span class="latest-pill">Latest Release</span>
-          <h3 id="latestVersionLabel">BuildEra v1.2.0</h3>
+          <h3 id="latestVersionLabel">BuildEra v1.2.1</h3>
         </div>
         <span class="rdate" id="latestDateLabel">Dirilis 2026</span>
       </div>
@@ -1087,6 +1094,38 @@
           <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M8 3v18"/><path d="M3 9h18"/><path d="M3 15h18"/></svg></span>
           <span><b>Template Import Excel</b><span>Format import data produk</span></span>
         </button>
+      </div>
+    </div>
+
+    <div class="release-hero custom-rel reveal">
+      <div class="release-top">
+        <div class="release-badge">
+          <span class="latest-pill" style="background:#5b6272">Custom Release</span>
+          <h3>Neelam-BuildEra v1.2.1</h3>
+        </div>
+        <span class="rdate">Dirilis 2026</span>
+      </div>
+      <p style="color:var(--muted-dark);font-size:14px;margin:-16px 0 24px;max-width:600px;">Versi khusus untuk kebutuhan kustomisasi perusahaan Neelam. Termasuk fitur dan penyesuaian spesifik.</p>
+
+      <div class="method-grid">
+        <div class="method-card">
+          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="8" height="8"/><rect x="13" y="4" width="8" height="8"/><rect x="3" y="14" width="8" height="8"/><rect x="13" y="14" width="8" height="8"/></svg></div>
+          <h4>Neelam MSIX Installer</h4>
+          <p>Installer Windows khusus untuk versi Neelam.</p>
+          <button class="btn btn-primary btn-block" data-download="neelamMsix">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v13"/><path d="M6 11l6 6 6-6"/><path d="M4 21h16"/></svg>
+            Download MSIX
+          </button>
+        </div>
+        <div class="method-card">
+          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8v13H3V8"/><path d="M1 3h22v5H1z"/><path d="M10 12h4"/></svg></div>
+          <h4>Neelam Portable ZIP</h4>
+          <p>Extract lalu jalankan builderaNeelam.exe.</p>
+          <button class="btn btn-primary btn-block" data-download="neelamZip">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v13"/><path d="M6 11l6 6 6-6"/><path d="M4 21h16"/></svg>
+            Download ZIP
+          </button>
+        </div>
       </div>
     </div>
 
@@ -1180,17 +1219,28 @@
      (bukan link mati / bukan navigasi ke halaman kosong).
   ========================================================= */
   const DOWNLOADS = {
-    latestVersion: "v1.2.0",
+    latestVersion: "v1.2.1",
     releaseDate: "2026",
-    msix: { url: "https://github.com/alyafi0899/BuildEra-Release/releases/download/v1.2.0/buildera.msix", label: "buildera.msix", size: "55.65 MB" },
-    zip: { url: "https://github.com/alyafi0899/BuildEra-Release/releases/download/v1.2.0/BuildEra.zip", label: "BuildEra.zip", size: "26.66 MB" },
+    msix: { url: "https://github.com/alyafi0899/BuildEra-Release/releases/download/v1.2.1/buildera.msix", label: "buildera.msix", size: "55.65 MB" },
+    zip: { url: "https://github.com/alyafi0899/BuildEra-Release/releases/download/v1.2.1/BuildEra.zip", label: "BuildEra.zip", size: "26.66 MB" },
+    neelamMsix: { url: "https://github.com/alyafi0899/BuildEra-Release/releases/download/v1.2.1/builderaNeelam.msix", label: "builderaNeelam.msix", size: "55.65 MB" },
+    neelamZip: { url: "https://github.com/alyafi0899/BuildEra-Release/releases/download/v1.2.1/BuildEraNeelam.zip", label: "BuildEraNeelam.zip", size: "26.66 MB" },
     manualBook: { url: "https://github.com/alyafi0899/BuildEra-Release/releases/download/v1.2.0/Manual.Book.BuildEra.V0.1.pdf", label: "Manual.Book.BuildEra.V0.1.pdf" },
     excelTemplate: { url: "https://github.com/alyafi0899/BuildEra-Release/releases/download/v1.2.0/Format_import_Product_list_BuildEra.xlsx", label: "Format_import_Product_list_BuildEra.xlsx" }
   };
 
   const RELEASES = [
     {
-      version: "v1.2.0",
+      version: "Neelam-BuildEra v1.2.1",
+      status: "custom",
+      date: "2026",
+      downloads: [
+        { key: "neelamMsix", label: "Neelam MSIX Installer" },
+        { key: "neelamZip", label: "Neelam Portable ZIP" }
+      ]
+    },
+    {
+      version: "v1.2.1",
       status: "latest",
       date: DOWNLOADS.releaseDate,
       downloads: [
@@ -1199,9 +1249,16 @@
         { key: "manualBook", label: "Manual Book" },
         { key: "excelTemplate", label: "Excel Import Template" }
       ]
+    },
+    {
+      version: "v1.2.0",
+      status: "old",
+      date: "2026",
+      downloads: [
+        { key: "msix", label: "Windows MSIX Installer" },
+        { key: "zip", label: "Portable ZIP" }
+      ]
     }
-    // Tambahkan versi lama di sini saat rilis baru tersedia, contoh:
-    // { version:"v1.1.0", status:"old", date:"2025", downloads:[{key:"msix",label:"Windows MSIX Installer"}] }
   ];
 
   function isPlaceholder(url){ return !url || url.indexOf("PASTE_") === 0; }
