@@ -310,10 +310,10 @@ function CapabilitiesSection() {
 // ─────────────────────────────────────────
 function ProjectCard({ project, onClick, height = '60vh' }: { project: typeof PROJECTS[0]; onClick?: () => void; height?: string }) {
   const handleClick = () => {
-    if ('link' in project && project.link) {
-      window.open(project.link, '_blank');
-    } else if (onClick) {
+    if (project.name === 'BUILD ERA' && onClick) {
       onClick();
+    } else if ('link' in project && project.link) {
+      window.open(project.link, '_blank');
     }
   };
 
@@ -522,10 +522,10 @@ function ProductsSection({ onBuildEraClick }: { onBuildEraClick: () => void }) {
 
 function ProductText({ product, onBuildEraClick }: { product: typeof PRODUCTS[0]; onBuildEraClick: () => void }) {
   const handleClick = () => {
-    if ('link' in product && product.link) {
-      window.open(product.link, '_blank');
-    } else if (onBuildEraClick) {
+    if (product.name === 'BUILD ERA' && onBuildEraClick) {
       onBuildEraClick();
+    } else if ('link' in product && product.link) {
+      window.open(product.link, '_blank');
     }
   };
 
@@ -745,7 +745,7 @@ function Footer({ onCMSClick }: { onCMSClick: () => void }) {
 
         <div>
           <div style={{ fontSize: '11px', letterSpacing: '0.14em', color: '#444444', fontWeight: 600, marginBottom: '20px' }}>LOCATION</div>
-          <span style={{ fontSize: '13px', color: '#555555', lineHeight: 1.6 }}>INDONESIA<br />Jakarta · Bandung</span>
+          <span style={{ fontSize: '13px', color: '#555555', lineHeight: 1.6 }}>INDONESIA<br />Gayo Lues · Aceh</span>
         </div>
 
         <div>

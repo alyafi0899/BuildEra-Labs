@@ -1,0 +1,10 @@
+{
+  "description": "Streamline construction project management with tools for data import, installation, and detailed user guidance, enhancing efficiency for builders and contractors.",
+  "robots": {
+    "index": false
+  },
+  "accessibility": {
+    "addBypassLinks": false,
+    "ignoreReducedMotion": false
+  }
+}
