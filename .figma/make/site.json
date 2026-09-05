@@ -1,0 +1,10 @@
+{
+  "description": "Converts Markdown instructions into actionable tasks, streamlining workflow management for developers and content creators seeking efficiency.",
+  "robots": {
+    "index": false
+  },
+  "accessibility": {
+    "addBypassLinks": false,
+    "ignoreReducedMotion": false
+  }
+}
