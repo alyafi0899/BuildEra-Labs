@@ -148,11 +148,11 @@ export default function BuildEra({ onBack }: BuildEraProps) {
             <p style={{ color: '#8a8f98', fontSize: '20px', marginBottom: '40px' }}>Material & Construction POS</p>
 
             <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap' }}>
-              <a href="https://github.com/alyafi0899/BuildEra-Release/releases/download/v1.2.1/builderaNeelam.msix" style={{ border: '1px solid #FF6A00', padding: '16px 24px', display: 'flex', flexDirection: 'column', gap: '4px', textDecoration: 'none', color: '#fff' }}>
+              <a href="https://github.com/alyafi0899/BuildEra-Release/releases/download/v1.2.1/builderaNeelam.msix" target="_blank" rel="noreferrer" style={{ border: '1px solid #FF6A00', padding: '16px 24px', display: 'flex', flexDirection: 'column', gap: '4px', textDecoration: 'none', color: '#fff' }}>
                 <b style={{ fontSize: '16px' }}>Download MSIX</b>
                 <span style={{ fontSize: '11px', color: '#8a8f98' }}>Installer · Neelam v1.2.1</span>
               </a>
-              <a href="https://github.com/alyafi0899/BuildEra-Release/releases/download/v1.2.1/BuildEraNeelam.zip" style={{ border: '1px solid #2a2d34', padding: '16px 24px', display: 'flex', flexDirection: 'column', gap: '4px', textDecoration: 'none', color: '#fff' }}>
+              <a href="https://github.com/alyafi0899/BuildEra-Release/releases/download/v1.2.1/BuildEraNeelam.zip" target="_blank" rel="noreferrer" style={{ border: '1px solid #2a2d34', padding: '16px 24px', display: 'flex', flexDirection: 'column', gap: '4px', textDecoration: 'none', color: '#fff' }}>
                 <b style={{ fontSize: '16px' }}>Download ZIP</b>
                 <span style={{ fontSize: '11px', color: '#8a8f98' }}>Portable · Neelam v1.2.1</span>
               </a>
@@ -208,15 +208,15 @@ export default function BuildEra({ onBack }: BuildEraProps) {
           <div style={{ padding: '40px', border: '1px solid rgba(255,106,0,0.3)', background: 'rgba(255,106,0,0.05)' }}>
             <h3 style={{ fontSize: '24px', fontWeight: 800, marginBottom: '24px' }}>BuildEra v1.2.1 (Neelam Version)</h3>
             <div style={{ display: 'flex', gap: '16px' }}>
-              <button onClick={() => window.open('https://github.com/alyafi0899/BuildEra-Release/releases/download/v1.2.1/builderaNeelam.msix')} style={{ background: '#FF6A00', color: '#000', border: 'none', padding: '12px 24px', fontWeight: 700, cursor: 'pointer' }}>DOWNLOAD MSIX</button>
-              <button onClick={() => window.open('https://github.com/alyafi0899/BuildEra-Release/releases/download/v1.2.1/BuildEraNeelam.zip')} style={{ background: 'none', border: '1px solid #FF6A00', color: '#FF6A00', padding: '12px 24px', fontWeight: 700, cursor: 'pointer' }}>DOWNLOAD ZIP</button>
+              <a href="https://github.com/alyafi0899/BuildEra-Release/releases/download/v1.2.1/builderaNeelam.msix" target="_blank" rel="noreferrer" style={{ background: '#FF6A00', color: '#000', border: 'none', padding: '12px 24px', fontWeight: 700, cursor: 'pointer', textDecoration: 'none' }}>DOWNLOAD MSIX</a>
+              <a href="https://github.com/alyafi0899/BuildEra-Release/releases/download/v1.2.1/BuildEraNeelam.zip" target="_blank" rel="noreferrer" style={{ background: 'none', border: '1px solid #FF6A00', color: '#FF6A00', padding: '12px 24px', fontWeight: 700, cursor: 'pointer', textDecoration: 'none' }}>DOWNLOAD ZIP</a>
             </div>
           </div>
           <div style={{ padding: '40px', border: '1px solid #1e2128', background: '#16181c' }}>
             <h3 style={{ fontSize: '24px', fontWeight: 800, marginBottom: '24px', color: '#8a8f98' }}>BuildEra v1.2.0 (Standard)</h3>
             <div style={{ display: 'flex', gap: '16px' }}>
-              <button onClick={() => window.open('https://github.com/alyafi0899/BuildEra-Release/releases/download/v1.2.0/buildera.msix')} style={{ background: '#333', color: '#fff', border: 'none', padding: '12px 24px', fontWeight: 700, cursor: 'pointer' }}>DOWNLOAD MSIX</button>
-              <button onClick={() => window.open('https://github.com/alyafi0899/BuildEra-Release/releases/download/v1.2.0/BuildEra.zip')} style={{ background: 'none', border: '1px solid #333', color: '#8a8f98', padding: '12px 24px', fontWeight: 700, cursor: 'pointer' }}>DOWNLOAD ZIP</button>
+              <a href="https://github.com/alyafi0899/BuildEra-Release/releases/download/v1.2.0/buildera.msix" target="_blank" rel="noreferrer" style={{ background: '#333', color: '#fff', border: 'none', padding: '12px 24px', fontWeight: 700, cursor: 'pointer', textDecoration: 'none' }}>DOWNLOAD MSIX</a>
+              <a href="https://github.com/alyafi0899/BuildEra-Release/releases/download/v1.2.0/BuildEra.zip" target="_blank" rel="noreferrer" style={{ background: 'none', border: '1px solid #333', color: '#8a8f98', padding: '12px 24px', fontWeight: 700, cursor: 'pointer', textDecoration: 'none' }}>DOWNLOAD ZIP</a>
             </div>
           </div>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '16px' }}>

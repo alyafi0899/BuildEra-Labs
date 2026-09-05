@@ -45,7 +45,7 @@ const PROJECTS = [
     year: '2026',
     size: 'full',
     img: builderaImg,
-    type: 'internal',
+    link: '/buildera/',
   },
   {
     num: '02',
@@ -103,7 +103,7 @@ const PRODUCTS = [
     status: 'LIVE',
     cat: 'ENTERPRISE',
     img: builderaImg,
-    type: 'internal',
+    link: '/buildera/',
   },
   {
     name: 'LUDESC',
@@ -310,9 +310,7 @@ function CapabilitiesSection() {
 // ─────────────────────────────────────────
 function ProjectCard({ project, onClick, height = '60vh' }: { project: typeof PROJECTS[0]; onClick?: () => void; height?: string }) {
   const handleClick = () => {
-    if (project.name === 'BUILD ERA' && onClick) {
-      onClick();
-    } else if ('link' in project && project.link) {
+    if ('link' in project && project.link) {
       window.open(project.link, '_blank');
     }
   };
@@ -522,9 +520,7 @@ function ProductsSection({ onBuildEraClick }: { onBuildEraClick: () => void }) {
 
 function ProductText({ product, onBuildEraClick }: { product: typeof PRODUCTS[0]; onBuildEraClick: () => void }) {
   const handleClick = () => {
-    if (product.name === 'BUILD ERA' && onBuildEraClick) {
-      onBuildEraClick();
-    } else if ('link' in product && product.link) {
+    if ('link' in product && product.link) {
       window.open(product.link, '_blank');
     }
   };
