@@ -657,42 +657,354 @@ function AboutSection() {
 // ─────────────────────────────────────────
 function CTASection() {
   const { ref, visible } = useScrollReveal();
+  const contacts = [
+    {
+      type: 'EMAIL',
+      value: 'solutivolabs@gmail.com',
+      href: 'mailto:solutivolabs@gmail.com',
+      icon: '/communication.png',
+      label: 'GET IN TOUCH'
+    },
+    {
+      type: 'WHATSAPP',
+      value: '+971 58 251 7092',
+      href: 'https://wa.me/971582517092',
+      icon: '/whatsapp.png',
+      label: 'CHAT DIRECTLY'
+    }
+  ];
+
   return (
     <section id="contact" style={{ background: '#111111', padding: `clamp(100px, 15vw, 200px) ${PX}` }}>
       <div ref={ref} className={`sr ${visible ? 'visible' : ''}`}>
-        <h2 style={{ margin: '0 0 48px', fontSize: 'clamp(56px, 9vw, 150px)', fontWeight: 900, lineHeight: 0.85, letterSpacing: '-0.04em', textTransform: 'uppercase', color: '#FFFFFF' }}>
+        <h2 style={{ margin: '0 0 64px', fontSize: 'clamp(56px, 9vw, 150px)', fontWeight: 900, lineHeight: 0.85, letterSpacing: '-0.04em', textTransform: 'uppercase', color: '#FFFFFF' }}>
           LET'S<br />BUILD<br />SOMETHING<br /><span style={{ color: '#C8421A' }}>USEFUL.</span>
         </h2>
-        <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap', alignItems: 'center' }}>
+
+        {/* Direct Contact Cards */}
+        <div style={{
+          display: 'grid',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+          gap: '24px',
+          maxWidth: '900px',
+          marginBottom: '48px'
+        }}>
+          {contacts.map((contact) => (
+            <a
+              key={contact.type}
+              href={contact.href}
+              target={contact.type === 'WHATSAPP' ? '_blank' : '_self'}
+              rel={contact.type === 'WHATSAPP' ? 'noopener noreferrer' : ''}
+              style={{
+                position: 'relative',
+                display: 'block',
+                textDecoration: 'none',
+                borderRadius: '0',
+                overflow: 'hidden',
+                transition: 'all 0.35s cubic-bezier(0.4, 0, 0.2, 1)'
+              }}
+              onMouseEnter={(e) => {
+                const el = e.currentTarget;
+                (el.querySelector('.contact-card-inner') as HTMLElement).style.transform = 'translateY(-8px)';
+                (el.querySelector('.contact-card-bg') as HTMLElement).style.opacity = '0.15';
+              }}
+              onMouseLeave={(e) => {
+                const el = e.currentTarget;
+                (el.querySelector('.contact-card-inner') as HTMLElement).style.transform = 'translateY(0)';
+                (el.querySelector('.contact-card-bg') as HTMLElement).style.opacity = '0.08';
+              }}
+            >
+              {/* Background accent */}
+              <div
+                className="contact-card-bg"
+                style={{
+                  position: 'absolute',
+                  inset: 0,
+                  background: contact.type === 'EMAIL' ? '#C8421A' : '#00AA00',
+                  opacity: 0.08,
+                  transition: 'opacity 0.35s ease',
+                  zIndex: 0
+                }}
+              />
+
+              {/* Border */}
+              <div style={{
+                position: 'absolute',
+                inset: 0,
+                border: '1px solid rgba(255,255,255,0.15)',
+                pointerEvents: 'none',
+                zIndex: 1
+              }} />
+
+              {/* Content */}
+              <div
+                className="contact-card-inner"
+                style={{
+                  padding: 'clamp(32px, 5vw, 48px)',
+                  position: 'relative',
+                  zIndex: 2,
+                  display: 'flex',
+                  flexDirection: 'column',
+                  gap: '20px',
+                  transition: 'transform 0.35s cubic-bezier(0.4, 0, 0.2, 1)',
+                  minHeight: '200px',
+                  justifyContent: 'space-between'
+                }}
+              >
+                {/* Icon and type */}
+                <div>
+                  <div style={{
+                    width: '48px',
+                    height: '48px',
+                    marginBottom: '16px',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center'
+                  }}>
+                    <img 
+                      src={contact.icon} 
+                      alt={contact.type}
+                      style={{
+                        width: '100%',
+                        height: '100%',
+                        objectFit: 'contain'
+                      }}
+                    />
+                  </div>
+                  <div style={{
+                    fontSize: '11px',
+                    letterSpacing: '0.18em',
+                    fontWeight: 700,
+                    color: contact.type === 'EMAIL' ? '#C8421A' : '#00AA00',
+                    textTransform: 'uppercase',
+                    marginBottom: '8px'
+                  }}>
+                    {contact.type}
+                  </div>
+                  <div style={{
+                    fontSize: 'clamp(16px, 2.5vw, 24px)',
+                    fontWeight: 800,
+                    letterSpacing: '-0.01em',
+                    color: '#FFFFFF',
+                    lineHeight: 1.2,
+                    wordBreak: 'break-word'
+                  }}>
+                    {contact.value}
+                  </div>
+                </div>
+
+                {/* CTA Label */}
+                <div style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '8px',
+                  fontSize: '12px',
+                  letterSpacing: '0.12em',
+                  fontWeight: 700,
+                  color: contact.type === 'EMAIL' ? '#C8421A' : '#00AA00',
+                  textTransform: 'uppercase'
+                }}>
+                  <span>{contact.label}</span>
+                  <span style={{ fontSize: '14px', marginTop: '2px' }}>→</span>
+                </div>
+              </div>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// ─────────────────────────────────────────
+// SECTION: Direct Contact
+// ─────────────────────────────────────────
+function DirectContactSection() {
+  const { ref, visible } = useScrollReveal();
+  const contacts = [
+    {
+      type: 'EMAIL',
+      value: 'solutivolabs@gmail.com',
+      href: 'mailto:solutivolabs@gmail.com',
+      icon: '✉',
+      label: 'GET IN TOUCH'
+    },
+    {
+      type: 'WHATSAPP',
+      value: '+971 58 251 7092',
+      href: 'https://wa.me/971582517092',
+      icon: '💬',
+      label: 'CHAT DIRECTLY'
+    }
+  ];
+
+  return (
+    <section style={{ background: '#F7F7F5', padding: `clamp(80px, 12vw, 160px) ${PX}`, borderBottom: '1px solid #D9D9D9' }}>
+      <div ref={ref} className={`sr ${visible ? 'visible' : ''}`} style={{ marginBottom: '64px' }}>
+        <h2 style={{
+          margin: '0 0 16px',
+          fontSize: 'clamp(36px, 5vw, 80px)',
+          fontWeight: 900,
+          lineHeight: 0.88,
+          letterSpacing: '-0.03em',
+          textTransform: 'uppercase',
+          color: '#111111'
+        }}>
+          DIRECT CONTACT
+        </h2>
+        <p style={{
+          fontSize: '16px',
+          lineHeight: 1.6,
+          color: '#666666',
+          margin: 0,
+          maxWidth: '500px'
+        }}>
+          Reach out directly. We respond quickly and love discussing new ideas.
+        </p>
+      </div>
+
+      <div style={{
+        display: 'grid',
+        gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+        gap: '24px',
+        maxWidth: '900px'
+      }}>
+        {contacts.map((contact) => (
           <a
-            href="mailto:solutivolabs@gmail.com"
+            key={contact.type}
+            href={contact.href}
+            target={contact.type === 'WHATSAPP' ? '_blank' : '_self'}
+            rel={contact.type === 'WHATSAPP' ? 'noopener noreferrer' : ''}
             style={{
-              fontSize: '13px',
-              letterSpacing: '0.14em',
-              fontWeight: 700,
-              color: '#111111',
-              background: '#FFFFFF',
+              position: 'relative',
+              display: 'block',
               textDecoration: 'none',
-              padding: '18px 40px',
-              display: 'inline-block',
-              transition: 'background 0.3s ease, color 0.3s ease',
+              borderRadius: '0',
+              overflow: 'hidden',
+              transition: 'all 0.35s cubic-bezier(0.4, 0, 0.2, 1)'
+            }}
+            onMouseEnter={(e) => {
+              const el = e.currentTarget;
+              (el.querySelector('.contact-card-inner') as HTMLElement).style.transform = 'translateY(-8px)';
+              (el.querySelector('.contact-card-bg') as HTMLElement).style.opacity = '1';
+            }}
+            onMouseLeave={(e) => {
+              const el = e.currentTarget;
+              (el.querySelector('.contact-card-inner') as HTMLElement).style.transform = 'translateY(0)';
+              (el.querySelector('.contact-card-bg') as HTMLElement).style.opacity = '0.05';
             }}
           >
-            START A PROJECT →
+            {/* Background accent */}
+            <div
+              className="contact-card-bg"
+              style={{
+                position: 'absolute',
+                inset: 0,
+                background: contact.type === 'EMAIL' ? '#C8421A' : '#00AA00',
+                opacity: 0.05,
+                transition: 'opacity 0.35s ease',
+                zIndex: 0
+              }}
+            />
+
+            {/* Border */}
+            <div style={{
+              position: 'absolute',
+              inset: 0,
+              border: '1px solid #D9D9D9',
+              pointerEvents: 'none',
+              zIndex: 1
+            }} />
+
+            {/* Content */}
+            <div
+              className="contact-card-inner"
+              style={{
+                padding: 'clamp(32px, 5vw, 48px)',
+                position: 'relative',
+                zIndex: 2,
+                display: 'flex',
+                flexDirection: 'column',
+                gap: '24px',
+                transition: 'transform 0.35s cubic-bezier(0.4, 0, 0.2, 1)',
+                minHeight: '240px',
+                justifyContent: 'space-between'
+              }}
+            >
+              {/* Icon and type */}
+              <div>
+                <div style={{
+                  fontSize: '32px',
+                  marginBottom: '16px',
+                  lineHeight: 1
+                }}>
+                  {contact.icon}
+                </div>
+                <div style={{
+                  fontSize: '11px',
+                  letterSpacing: '0.18em',
+                  fontWeight: 700,
+                  color: contact.type === 'EMAIL' ? '#C8421A' : '#00AA00',
+                  textTransform: 'uppercase',
+                  marginBottom: '8px'
+                }}>
+                  {contact.type}
+                </div>
+                <div style={{
+                  fontSize: 'clamp(16px, 2.5vw, 24px)',
+                  fontWeight: 800,
+                  letterSpacing: '-0.01em',
+                  color: '#111111',
+                  lineHeight: 1.2,
+                  wordBreak: 'break-word'
+                }}>
+                  {contact.value}
+                </div>
+              </div>
+
+              {/* CTA Label */}
+              <div style={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: '8px',
+                fontSize: '12px',
+                letterSpacing: '0.12em',
+                fontWeight: 700,
+                color: contact.type === 'EMAIL' ? '#C8421A' : '#00AA00',
+                textTransform: 'uppercase'
+              }}>
+                <span>{contact.label}</span>
+                <span style={{ fontSize: '14px', marginTop: '2px' }}>→</span>
+              </div>
+            </div>
           </a>
-          <a
-            href="mailto:solutivolabs@gmail.com"
-            style={{
-              fontSize: '13px',
-              letterSpacing: '0.14em',
-              fontWeight: 600,
-              color: 'rgba(255,255,255,0.5)',
-              textDecoration: 'none',
-              padding: '18px 0',
-            }}
-          >
-            solutivolabs@gmail.com
-          </a>
+        ))}
+      </div>
+
+      <div style={{
+        marginTop: '64px',
+        padding: '24px',
+        background: '#FFFFFF',
+        border: '1px solid #D9D9D9',
+        borderRadius: '0',
+      }}>
+        <div style={{
+          display: 'flex',
+          flexDirection: 'column',
+          gap: '12px',
+          fontSize: '13px',
+          lineHeight: 1.6,
+          color: '#666666'
+        }}>
+          <div>
+            <span style={{ fontWeight: 700, color: '#111111' }}>Response Time:</span> Usually within 24 hours
+          </div>
+          <div>
+            <span style={{ fontWeight: 700, color: '#111111' }}>Available Channels:</span> Email, WhatsApp, or through the form above
+          </div>
+          <div>
+            <span style={{ fontWeight: 700, color: '#111111' }}>Based in:</span> Indonesia · Working with global clients
+          </div>
         </div>
       </div>
     </section>
