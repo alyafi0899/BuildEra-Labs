@@ -12,6 +12,7 @@ const NAV_LINKS = [
   { label: 'SOLUTIONS', id: 'solutions' },
   { label: 'CLIENTS', id: 'clients' },
   { label: 'ABOUT', id: 'about' },
+  { label: 'FOUNDER', id: 'founder', isExternal: true },
   { label: 'CONTACT', id: 'contact' },
 ];
 
@@ -25,7 +26,12 @@ export default function Nav({ onCMSClick }: NavProps) {
     return () => window.removeEventListener('scroll', handler);
   }, []);
 
-  const scrollTo = (id: string) => {
+  const scrollTo = (id: string, isExternal?: boolean) => {
+    if (isExternal) {
+      if (id === 'founder') window.open('/yafi-portfolio/', '_blank');
+      setMobileOpen(false);
+      return;
+    }
     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
     setMobileOpen(false);
   };
@@ -72,10 +78,10 @@ export default function Nav({ onCMSClick }: NavProps) {
 
         {/* Desktop links */}
         <div style={{ display: 'flex', alignItems: 'center', gap: '36px' }} className="hidden-mobile">
-          {NAV_LINKS.map(({ label, id }) => (
+          {NAV_LINKS.map(({ label, id, isExternal }: any) => (
             <button
               key={id}
-              onClick={() => scrollTo(id)}
+              onClick={() => scrollTo(id, isExternal)}
               style={{
                 fontSize: '11px',
                 letterSpacing: '0.12em',
@@ -133,10 +139,10 @@ export default function Nav({ onCMSClick }: NavProps) {
             gap: '0',
           }}
         >
-          {NAV_LINKS.map(({ label, id }, i) => (
+          {NAV_LINKS.map(({ label, id, isExternal }: any, i) => (
             <button
               key={id}
-              onClick={() => scrollTo(id)}
+              onClick={() => scrollTo(id, isExternal)}
               style={{
                 fontSize: 'clamp(40px, 10vw, 60px)',
                 fontWeight: 800,

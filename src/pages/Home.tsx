@@ -619,9 +619,36 @@ function AboutSection() {
             <h2 style={{ margin: '0 0 32px', fontSize: 'clamp(36px, 4.5vw, 80px)', fontWeight: 900, lineHeight: 0.88, letterSpacing: '-0.03em', textTransform: 'uppercase', color: '#111111' }}>
               WE BUILD<br />WHAT SHOULD<br />EXIST.
             </h2>
-            <p style={{ fontSize: '16px', lineHeight: 1.7, color: '#666666', maxWidth: '400px', margin: '0 0 40px' }}>
+            <p style={{ fontSize: '16px', lineHeight: 1.7, color: '#666666', maxWidth: '400px', margin: '0 0 24px' }}>
               We are a team (Owner are alone and solo obviously hahahaaaa) of engineers, designers, and problem solvers based in Indonesia. We combine artificial intelligence, software craftsmanship, and systems thinking to build technology that creates measurable impact.
             </p>
+            <div style={{ marginBottom: '40px' }}>
+              <button
+                onClick={() => window.open('/yafi-portfolio/', '_blank')}
+                style={{
+                  fontSize: '11px',
+                  letterSpacing: '0.14em',
+                  fontWeight: 700,
+                  color: '#C8421A',
+                  background: 'none',
+                  border: '1px solid #C8421A',
+                  padding: '12px 24px',
+                  cursor: 'pointer',
+                  transition: 'all 0.3s ease',
+                  textTransform: 'uppercase'
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.background = '#C8421A';
+                  e.currentTarget.style.color = '#FFFFFF';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.background = 'none';
+                  e.currentTarget.style.color = '#C8421A';
+                }}
+              >
+                VIEW FOUNDER PORTFOLIO →
+              </button>
+            </div>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '0', borderTop: '1px solid #D9D9D9' }}>
               {[['ENGINEERING-FIRST', 'We build before we theorize.'], ['INDONESIA-ROOTED', 'Built for real-world local contexts.'], ['GLOBAL STANDARD', 'Production-grade, always.']].map(([title, desc]) => (
                 <div key={title} style={{ padding: '20px 0', borderBottom: '1px solid #D9D9D9' }}>
