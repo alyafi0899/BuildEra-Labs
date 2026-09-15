@@ -45,7 +45,7 @@ function Nav({ page, navigate }: { page: Page; navigate: (p: Page) => void }) {
   ]
   return (
     <nav className={`nav hnav ${stuck ? 'stuck' : ''}`}>
-      <button className="nav-logo" onClick={() => navigate('home')}>YAFI ACHENBACH</button>
+      <button className="nav-logo" onClick={() => navigate('home')}>YAFI</button>
       <div className="nav-links">
         {links.map(l => (
           <button key={l.page} className={`nav-btn ${page === l.page ? 'active' : ''}`} onClick={() => navigate(l.page)}>{l.label}</button>
@@ -245,22 +245,41 @@ function HomePage({ navigate }: { navigate: (p: Page) => void }) {
 function WorksPage({ navigate }: { navigate: (p: Page) => void }) {
   const [filter, setFilter] = useState<Filter>('ALL')
   const filters: Filter[] = ['ALL', 'AI', 'MEDTECH', 'IoT', 'HARDWARE', 'RESEARCH']
+  const [hoveredSkill, setHoveredSkill] = useState(0)
+
+  const SKILLS = [
+    { label: 'Desktop and Mobile Apps Aplication', img: '/yafi-portfolio/assets/work_hero/hard-software.png' },
+    { label: 'UI/UX system', img: '/yafi-portfolio/assets/work_hero/uix.png' },
+    { label: 'Hardware & Software Automation', img: '/yafi-portfolio/assets/work_hero/hard-software.png' },
+    { label: '3D Model and Print', img: '/yafi-portfolio/assets/work_hero/3d.png' }
+  ]
 
   return (
     <div className="page-enter">
-      {/* Hero */}
-      <div className="works-hero">
-        <div>
-          <p className="mono-label h1" style={{ marginBottom: 16 }}>Selected Work — 2025</p>
-          <h1 className="works-hero-title">
-            <span className="h2" style={{ display: 'block' }}>Five Projects.</span>
-            <span className="h3" style={{ display: 'block', color: 'var(--accent)' }}>Built End-to-End.</span>
-          </h1>
+      {/* Interactive Hero */}
+      <section className="works-hero-interactive">
+        {SKILLS.map((s, i) => (
+          <div key={i} className={`hero-bg-layer ${hoveredSkill === i ? 'active' : ''}`}>
+            <img src={s.img} alt="" />
+          </div>
+        ))}
+        <div className="hero-overlay-dark" />
+
+        <div className="hero-content-wrap">
+          <div className="hero-side-label">Skills</div>
+          <div className="hero-skills-list">
+            {SKILLS.map((s, i) => (
+              <button
+                key={i}
+                className={`skill-item ${hoveredSkill === i ? 'active' : ''}`}
+                onMouseEnter={() => setHoveredSkill(i)}
+              >
+                {s.label}
+              </button>
+            ))}
+          </div>
         </div>
-        <p className="works-hero-sub hsub">
-          From concept and research through hardware, AI development, and real-world deployment.
-        </p>
-      </div>
+      </section>
 
       {/* Filter bar */}
       <div className="filter-bar">
