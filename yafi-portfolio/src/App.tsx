@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 
 /* ─── Types ─── */
-type Page = 'works' | 'ludesc' | 'gcov' | 'hazard' | 'asd' | 'croptic' | 'about' | 'contact'
+type Page = 'home' | 'works' | 'ludesc' | 'gcov' | 'hazard' | 'asd' | 'croptic' | 'about' | 'contact'
 type Filter = 'ALL' | 'AI' | 'MEDTECH' | 'IoT' | 'HARDWARE' | 'RESEARCH'
 
 /* ─── Scroll reveal hook ─── */
@@ -45,7 +45,7 @@ function Nav({ page, navigate }: { page: Page; navigate: (p: Page) => void }) {
   ]
   return (
     <nav className={`nav hnav ${stuck ? 'stuck' : ''}`}>
-      <button className="nav-logo" onClick={() => navigate('works')}>YAFI</button>
+      <button className="nav-logo" onClick={() => navigate('home')}>YAFI ACHENBACH</button>
       <div className="nav-links">
         {links.map(l => (
           <button key={l.page} className={`nav-btn ${page === l.page ? 'active' : ''}`} onClick={() => navigate(l.page)}>{l.label}</button>
@@ -134,6 +134,112 @@ const PROJECTS: Project[] = [
     col: 12, h: 380,
   },
 ]
+
+/* ─── Home Page ─── */
+function HomePage({ navigate }: { navigate: (p: Page) => void }) {
+  const [activeSlide, setActiveSlide] = useState(0)
+  const slides = [
+    {
+      img: 'https://images.unsplash.com/photo-1758691461935-202e2ef6b69f?w=2400&h=1200&fit=crop&auto=format&q=95',
+      headline: 'Ideas, crafted across product, service, and intelligence.'
+    },
+    {
+      img: 'https://images.unsplash.com/photo-1677628680791-2fb26447b560?w=2400&h=1200&fit=crop&auto=format&q=95',
+      headline: 'Building systems that integrate hardware and AI.'
+    },
+    {
+      img: 'https://images.unsplash.com/photo-1680725238843-5d9808d7f980?w=2400&h=1200&fit=crop&auto=format&q=95',
+      headline: 'Designing for impact and real-world complexity.'
+    }
+  ]
+
+  useEffect(() => {
+    const itv = setInterval(() => {
+      setActiveSlide(s => (s + 1) % slides.length)
+    }, 6000)
+    return () => clearInterval(itv)
+  }, [slides.length])
+
+  return (
+    <div className="page-enter">
+      {/* 1. Hero Section */}
+      <section className="home-hero">
+        {slides.map((s, i) => (
+          <div key={i} className={`home-slide ${activeSlide === i ? 'active' : ''}`}>
+            <img src={s.img} alt="" className="home-slide-img" />
+            <div className="home-hero-content">
+              <h1 className="home-hero-text">{s.headline}</h1>
+            </div>
+          </div>
+        ))}
+
+        {/* Index cards at bottom */}
+        <div className="home-hero-index">
+          {slides.map((s, i) => (
+            <button
+              key={i}
+              className={`home-index-card ${activeSlide === i ? 'active' : ''}`}
+              onClick={() => setActiveSlide(i)}
+            >
+              <img src={s.img} alt="" />
+            </button>
+          ))}
+          <div className="home-hero-counter">
+            0{activeSlide + 1} / 0{slides.length}
+          </div>
+        </div>
+      </section>
+
+      {/* 2. Intro Section */}
+      <section className="home-intro">
+        <div className="home-intro-inner">
+          <h2 className="home-intro-text">
+            Hello! I'm Yafi, a designer creating holistic experiences and systems rooted in empathy, care, and a love for detail. 🔍
+          </h2>
+          <h2 className="home-intro-text">
+            I connect hardware, software, services, and intelligence into cohesive ecosystems, designing experiences that make life easier and leave a lasting impact. 🚀
+          </h2>
+          <h2 className="home-intro-text">
+            I'm always open to connecting with people and teams who are shaping thoughtful, future-facing products and experiences. Feel free to reach out if you'd like to explore ideas or potential collaboration.
+          </h2>
+          <button className="home-intro-link" onClick={() => navigate('about')}>About my design approach</button>
+        </div>
+      </section>
+
+      {/* 3. Project Gallery */}
+      <section className="home-gallery">
+        <div className="home-gallery-head">
+          <h2 className="home-gallery-title">Project Gallery</h2>
+          <button className="home-gallery-all" onClick={() => navigate('works')}>View All</button>
+        </div>
+        <div className="home-gallery-grid">
+          {PROJECTS.slice(0, 4).map(p => (
+            <div key={p.id} className="home-gallery-card" onClick={() => navigate(p.id)}>
+              <div className="home-gallery-img-wrap">
+                <img src={p.img} alt={p.name} />
+              </div>
+              <div className="home-gallery-card-info">
+                {p.name}
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* 4. Final Footer */}
+      <section className="home-footer">
+        <div className="home-footer-inner">
+          <div className="home-footer-name">Yafi Achenbach</div>
+          <div className="home-footer-links">
+            <a href="mailto:alyafi@engineer.com">Email</a>
+            <a href="#">LinkedIn</a>
+            <a href="#">Github</a>
+          </div>
+        </div>
+      </section>
+    </div>
+  )
+}
 
 /* ─── Works page ─── */
 function WorksPage({ navigate }: { navigate: (p: Page) => void }) {
@@ -635,7 +741,7 @@ function ContactPage({ navigate }: { navigate: (p: Page) => void }) {
 
 /* ─── App / Router ─── */
 export default function App() {
-  const [page, setPage] = useState<Page>('works')
+  const [page, setPage] = useState<Page>('home')
   const [transitioning, setTransitioning] = useState(false)
 
   function navigate(to: Page) {
@@ -648,7 +754,8 @@ export default function App() {
     <div style={{ background: 'var(--bg)', minHeight: '100vh', opacity: transitioning ? 0 : 1, transition: 'opacity 0.32s ease' }}>
       <Cursor />
       <Nav page={page} navigate={navigate} />
-      <div style={{ paddingTop: 60 }}>
+      <div style={{ paddingTop: page === 'home' ? 0 : 60 }}>
+        {page === 'home'    && <HomePage    navigate={navigate} />}
         {page === 'works'   && <WorksPage   navigate={navigate} />}
         {page === 'ludesc'  && <LudescPage  navigate={navigate} />}
         {page === 'gcov'    && <GenericStudy id="gcov"    navigate={navigate} />}
