@@ -248,7 +248,7 @@ function WorksPage({ navigate }: { navigate: (p: Page) => void }) {
   const [hoveredSkill, setHoveredSkill] = useState(0)
 
   const SKILLS = [
-    { label: 'Desktop and Mobile Apps Aplication', img: '/yafi-portfolio/assets/work_hero/hard-software.png' },
+    { label: 'Desktop and Mobile Apps Aplication', img: '/yafi-portfolio/assets/work_hero/app_dev.png' },
     { label: 'UI/UX system', img: '/yafi-portfolio/assets/work_hero/uix.png' },
     { label: 'Hardware & Software Automation', img: '/yafi-portfolio/assets/work_hero/hard-software.png' },
     { label: '3D Model and Print', img: '/yafi-portfolio/assets/work_hero/3d.png' }

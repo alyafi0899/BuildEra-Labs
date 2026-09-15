@@ -453,14 +453,16 @@ button { background: none; border: none; cursor: pointer; color: inherit; font: 
   background: linear-gradient(to right, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0.8) 100%);
 }
 .hero-content-wrap {
-  position: absolute; inset: 0; z-index: 10; display: flex; align-items: center; padding: 0 80px; gap: 100px;
+  position: absolute; inset: 0; z-index: 10; display: flex; align-items: center; padding: 0 80px; justify-content: flex-end;
 }
 .hero-side-label {
+  position: absolute; left: 80px; top: 50%; transform: translateY(-50%) rotate(180deg);
   font-family: var(--mono); font-size: 10px; color: #fff; text-transform: uppercase; letter-spacing: 0.2em;
-  writing-mode: vertical-lr; transform: rotate(180deg); opacity: 0.5;
+  writing-mode: vertical-lr; opacity: 0.5;
 }
 .hero-skills-list {
   display: flex; flex-direction: column; gap: 12px; align-items: flex-start;
+  margin-right: 15%; /* Push list slightly more to the middle-right */
 }
 .skill-item {
   font-size: clamp(32px, 5vw, 64px); font-weight: 800; letter-spacing: -0.04em;
