@@ -48,7 +48,7 @@ function Nav({ page, navigate }: { page: Page; navigate: (p: Page) => void }) {
 
   return (
     <nav className={`nav hnav ${stuck ? 'stuck' : ''} ${isWhiteNav ? 'nav-white' : 'nav-dark'}`}>
-      <button className="nav-logo" onClick={() => navigate('home')}>YAFI ACHENBACH</button>
+      <button className="nav-logo" onClick={() => navigate('home')}>AL YAFI</button>
       <div className="nav-links">
         {links.map(l => (
           <button key={l.page} className={`nav-btn ${page === l.page ? 'active' : ''}`} onClick={() => navigate(l.page)}>{l.label}</button>
@@ -252,7 +252,7 @@ function HomePage({ navigate }: { navigate: (p: Page) => void }) {
       {/* 5. Final Footer */}
       <section className="home-footer">
         <div className="home-footer-inner">
-          <div className="home-footer-name">Yafi</div>
+          <div className="home-footer-name">Al Yafi</div>
           <div className="home-footer-links">
             <a href="mailto:alyafi@engineer.com">Email</a>
             <a href="#">LinkedIn</a>
@@ -806,7 +806,7 @@ export default function App() {
     <div style={{ background: 'var(--bg)', minHeight: '100vh', opacity: transitioning ? 0 : 1, transition: 'opacity 0.32s ease' }}>
       <Cursor />
       <Nav page={page} navigate={navigate} />
-      <div style={{ paddingTop: page === 'home' ? 0 : 60 }}>
+      <div style={{ paddingTop: (page === 'home' || page === 'works' || page === 'about') ? 0 : 60 }}>
         {page === 'home'    && <HomePage    navigate={navigate} />}
         {page === 'works'   && <WorksPage   navigate={navigate} />}
         {page === 'ludesc'  && <LudescPage  navigate={navigate} />}
