@@ -634,6 +634,16 @@ function AboutPage({ navigate }: { navigate: (p: Page) => void }) {
 
   return (
     <div className="page-enter">
+      {/* Huge Hero for About Page */}
+      <div className="about-page-hero">
+        <img
+          src="/yafi-portfolio/assets/work.png"
+          alt="Work Hero"
+          className="about-hero-img"
+        />
+        <div className="about-hero-overlay" />
+      </div>
+
       {/* Greeting hero */}
       <div className="about-hero">
         <p className="mono-label h1" style={{ marginBottom: 20 }}>About</p>
@@ -655,7 +665,7 @@ function AboutPage({ navigate }: { navigate: (p: Page) => void }) {
           </div>
           <div>
             <img
-              src="https://images.unsplash.com/photo-1681097561932-36d0df02b379?w=700&h=900&fit=crop&auto=format&q=85"
+              src="/yafi-portfolio/assets/potrait.png"
               alt="Al Yafi — portrait"
               className="about-portrait"
             />
