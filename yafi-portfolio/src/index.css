@@ -408,7 +408,7 @@ button { background: none; border: none; cursor: pointer; color: inherit; font: 
   cursor: pointer;
 }
 .home-gallery-img-wrap {
-  aspect-ratio: 4/3; overflow: hidden; border-radius: 20px; background: #eee;
+  aspect-ratio: 4/3; overflow: hidden; border-radius: 0px; background: #eee;
 }
 .home-gallery-img-wrap img {
   width: 100%; height: 100%; object-fit: cover;
@@ -453,7 +453,7 @@ button { background: none; border: none; cursor: pointer; color: inherit; font: 
   background: linear-gradient(to right, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0.8) 100%);
 }
 .hero-content-wrap {
-  position: absolute; inset: 0; z-index: 10; display: flex; align-items: center; padding: 0 80px; justify-content: flex-end;
+  position: absolute; inset: 0; z-index: 10; display: flex; align-items: center; justify-content: center;
 }
 .hero-side-label {
   position: absolute; left: 80px; top: 50%; transform: translateY(-50%) rotate(180deg);
@@ -462,10 +462,10 @@ button { background: none; border: none; cursor: pointer; color: inherit; font: 
 }
 .hero-skills-list {
   display: flex; flex-direction: column; gap: 12px; align-items: flex-start;
-  margin-right: 15%; /* Push list slightly more to the middle-right */
+  margin-left: 25%; /* Position more towards the middle-right while remaining left-aligned */
 }
 .skill-item {
-  font-size: clamp(32px, 5vw, 64px); font-weight: 800; letter-spacing: -0.04em;
+  font-size: clamp(24px, 3.5vw, 44px); font-weight: 800; letter-spacing: -0.04em;
   line-height: 1.1; color: #fff; opacity: 0.15; transition: all 0.4s ease;
   text-align: left;
 }

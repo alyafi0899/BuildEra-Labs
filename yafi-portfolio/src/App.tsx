@@ -93,7 +93,7 @@ const PROJECTS: Project[] = [
     tagline: 'AI-powered wireless digital stethoscope for remote healthcare',
     tags: ['AI', 'MEDTECH', 'SIGNAL PROCESSING', 'HARDWARE'],
     filters: ['AI', 'MEDTECH', 'HARDWARE'],
-    img: 'https://images.unsplash.com/photo-1677628680791-2fb26447b560?w=1400&h=1000&fit=crop&auto=format&q=85',
+    img: '/yafi-portfolio/assets/ludesc/cover.png',
     alt: 'Hands holding the LUDESC digital stethoscope device',
     col: 7, h: 600,
   },
@@ -102,16 +102,16 @@ const PROJECTS: Project[] = [
     tagline: 'AI-driven COVID-19 severity detection from chest X-ray',
     tags: ['AI', 'DEEP LEARNING', 'IMAGING'],
     filters: ['AI', 'MEDTECH'],
-    img: 'https://images.unsplash.com/photo-1616012480717-fd9867059ca0?w=900&h=1000&fit=crop&auto=format&q=85',
+    img: '/yafi-portfolio/assets/G-cov/cover.png',
     alt: 'Chest X-ray used for COVID-19 classification',
     col: 5, h: 600,
   },
   {
-    id: 'hazard', num: '03', name: 'HAZARD TRIANGLE',
+    id: 'hazard', num: '03', name: 'SMART HAZARD TRIANGLE',
     tagline: 'GPS + BLE active roadside safety system',
     tags: ['IoT', 'HARDWARE', 'GPS', 'BLE'],
     filters: ['IoT', 'HARDWARE'],
-    img: 'https://images.unsplash.com/photo-1699205269431-1ab18afabac6?w=900&h=900&fit=crop&auto=format&q=85',
+    img: '/yafi-portfolio/assets/Smart Hazard Triangle/cover.png',
     alt: 'Night street scene representing smart roadside safety',
     col: 4, h: 480,
   },
@@ -120,7 +120,7 @@ const PROJECTS: Project[] = [
     tagline: 'EEG brainwave AI analysis for autism spectrum screening',
     tags: ['AI', 'EEG', 'SIGNAL', 'NEURO'],
     filters: ['AI', 'RESEARCH'],
-    img: 'https://images.unsplash.com/photo-1617994452722-4145e196248b?w=1200&h=900&fit=crop&auto=format&q=85',
+    img: '/yafi-portfolio/assets/ASD detection/cover.png',
     alt: 'Abstract blue wave signal representing EEG brainwave patterns',
     col: 8, h: 480,
   },
@@ -129,7 +129,7 @@ const PROJECTS: Project[] = [
     tagline: 'Drone-based RSPO compliance verification platform',
     tags: ['AI', 'GEOSPATIAL', 'DRONE', 'ESG'],
     filters: ['AI', 'RESEARCH'],
-    img: 'https://images.unsplash.com/photo-1680725238843-5d9808d7f980?w=1800&h=700&fit=crop&auto=format&q=85',
+    img: '/yafi-portfolio/assets/Croptic/cover.png',
     alt: 'Aerial view of plantation rows for RSPO compliance',
     col: 12, h: 380,
   },
@@ -213,8 +213,14 @@ function HomePage({ navigate }: { navigate: (p: Page) => void }) {
           <button className="home-gallery-all" onClick={() => navigate('works')}>View All</button>
         </div>
         <div className="home-gallery-grid">
-          {PROJECTS.slice(0, 4).map(p => (
-            <div key={p.id} className="home-gallery-card" onClick={() => navigate(p.id)}>
+          {PROJECTS.slice(0, 5).map(p => (
+            <div key={p.id} className="home-gallery-card" onClick={() => {
+              if (p.id === 'croptic') {
+                window.open('https://croptic.co/', '_blank');
+              } else {
+                navigate(p.id);
+              }
+            }}>
               <div className="home-gallery-img-wrap">
                 <img src={p.img} alt={p.name} />
               </div>
@@ -226,7 +232,21 @@ function HomePage({ navigate }: { navigate: (p: Page) => void }) {
         </div>
       </section>
 
-      {/* 4. Final Footer */}
+      {/* 4. ASEAN DIGITAL Award Section */}
+      <section className="home-gallery" style={{ borderTop: '1px solid var(--border)' }}>
+        <div className="home-gallery-head">
+          <h2 className="home-gallery-title">ASEAN DIGITAL Award</h2>
+        </div>
+        <div className="home-gallery-grid" style={{ gridTemplateColumns: '1fr' }}>
+          <div className="home-gallery-card">
+            <div className="home-gallery-img-wrap" style={{ aspectRatio: '21/9' }}>
+              <img src="/yafi-portfolio/assets/ADA/cover.png" alt="ASEAN Digital Award" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 5. Final Footer */}
       <section className="home-footer">
         <div className="home-footer-inner">
           <div className="home-footer-name">Yafi Achenbach</div>
