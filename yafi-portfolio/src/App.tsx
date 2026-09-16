@@ -249,7 +249,7 @@ function HomePage({ navigate }: { navigate: (p: Page) => void }) {
       {/* 5. Final Footer */}
       <section className="home-footer">
         <div className="home-footer-inner">
-          <div className="home-footer-name">Yafi Achenbach</div>
+          <div className="home-footer-name">Yafi</div>
           <div className="home-footer-links">
             <a href="mailto:alyafi@engineer.com">Email</a>
             <a href="#">LinkedIn</a>
