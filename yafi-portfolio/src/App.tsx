@@ -140,15 +140,15 @@ function HomePage({ navigate }: { navigate: (p: Page) => void }) {
   const [activeSlide, setActiveSlide] = useState(0)
   const slides = [
     {
-      img: 'https://images.unsplash.com/photo-1758691461935-202e2ef6b69f?w=2400&h=1200&fit=crop&auto=format&q=95',
+      img: '/yafi-portfolio/assets/home/hero1.png',
       headline: 'Ideas, crafted across product, service, and intelligence.'
     },
     {
-      img: 'https://images.unsplash.com/photo-1677628680791-2fb26447b560?w=2400&h=1200&fit=crop&auto=format&q=95',
+      img: '/yafi-portfolio/assets/home/hero2.png',
       headline: 'Building systems that integrate hardware and AI.'
     },
     {
-      img: 'https://images.unsplash.com/photo-1680725238843-5d9808d7f980?w=2400&h=1200&fit=crop&auto=format&q=95',
+      img: '/yafi-portfolio/assets/home/hero3.png',
       headline: 'Designing for impact and real-world complexity.'
     }
   ]
