@@ -43,9 +43,12 @@ function Nav({ page, navigate }: { page: Page; navigate: (p: Page) => void }) {
     { label: 'About', page: 'about' },
     { label: 'Contact', page: 'contact' },
   ]
+
+  const isWhiteNav = page === 'contact';
+
   return (
-    <nav className={`nav hnav ${stuck ? 'stuck' : ''}`}>
-      <button className="nav-logo" onClick={() => navigate('home')}>YAFI</button>
+    <nav className={`nav hnav ${stuck ? 'stuck' : ''} ${isWhiteNav ? 'nav-white' : 'nav-dark'}`}>
+      <button className="nav-logo" onClick={() => navigate('home')}>YAFI ACHENBACH</button>
       <div className="nav-links">
         {links.map(l => (
           <button key={l.page} className={`nav-btn ${page === l.page ? 'active' : ''}`} onClick={() => navigate(l.page)}>{l.label}</button>
