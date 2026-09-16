@@ -806,7 +806,7 @@ export default function App() {
     <div style={{ background: 'var(--bg)', minHeight: '100vh', opacity: transitioning ? 0 : 1, transition: 'opacity 0.32s ease' }}>
       <Cursor />
       <Nav page={page} navigate={navigate} />
-      <div style={{ paddingTop: (page === 'home' || page === 'works' || page === 'about') ? 0 : 60 }}>
+      <div style={{ paddingTop: page === 'contact' ? 60 : 0 }}>
         {page === 'home'    && <HomePage    navigate={navigate} />}
         {page === 'works'   && <WorksPage   navigate={navigate} />}
         {page === 'ludesc'  && <LudescPage  navigate={navigate} />}
