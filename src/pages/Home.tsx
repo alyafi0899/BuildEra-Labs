@@ -94,12 +94,12 @@ const CAPABILITIES = [
 ];
 
 const CLIENTS = [
-  { name: 'Adi Jaya', industry: 'CONSTRUCTION', cat: 'RETAIL', year: '2026', img: ajLogo },
-  { name: 'Surya Agung', industry: 'CONSTRUCTION', cat: 'RETAIL', year: '2026', img: sgLogo },
-  { name: 'Naturiasia', industry: 'E-COMMERCE', cat: 'PLATFORM', year: '2026', img: naLogo },
-  { name: 'UD Oma', industry: 'CONSTRUCTION', cat: 'RETAIL', year: '2026', img: umLogo },
   { name: 'YOVA', industry: 'RENT DRESS MARRIAGE', cat: 'E-COMMERCE', year: '2024', img: yovaImg, link: 'https://yova.solutivolabs.workers.dev/' },
   { name: 'PRESTIGIUM ACADEMIA', industry: 'EDUCATION', cat: 'TRAINING PLATFORM', year: '2025', img: prestigiumImg, link: 'https://prestigeum-academia.solutivolabs.workers.dev/' },
+  { name: 'Adi Jaya', industry: 'CONSTRUCTION', cat: 'BUILDERA POS', year: '2026', img: ajLogo },
+  { name: 'Surya Agung', industry: 'CONSTRUCTION', cat: 'BUILDERA POS', year: '2026', img: sgLogo },
+  { name: 'Naturiasia', industry: 'E-COMMERCE', cat: 'BUILDERA POS', year: '2026', img: naLogo },
+  { name: 'UD Oma', industry: 'CONSTRUCTION', cat: 'BUILDERA POS', year: '2026', img: umLogo },
 ];
 
 const TECH_WORDS = ['AI', 'COMPUTER VISION', 'MOBILE', 'WEB', 'CLOUD', 'IoT', 'DATA', 'AUTOMATION', 'PYTHON', 'REACT', 'FLUTTER', 'PYTORCH', 'KUBERNETES', 'EDGE'];
