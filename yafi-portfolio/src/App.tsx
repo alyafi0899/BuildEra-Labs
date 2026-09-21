@@ -75,7 +75,7 @@ function Footer({ navigate }: { navigate: (p: Page) => void }) {
 
 /* ─── Marquee ─── */
 function Marquee() {
-  const items = ['LUDESC', '·', 'G-COV', '·', 'HAZARD TRIANGLE', '·', 'ASD DETECTION', '·', 'CROPTIC', '·', 'AI', '·', 'MEDTECH', '·', 'HARDWARE', '·', 'SIGNAL', '·', 'IoT', '·']
+  const items = ['LUDESC', '·', 'G-COV', '·', 'SMART HAZARD TRIANGLE', '·', 'ASD DETECTION', '·', 'CROPTIC', '·', 'AI', '·', 'MEDTECH', '·', 'HARDWARE', '·', 'SIGNAL', '·', 'IoT', '·']
   return (
     <div style={{ overflow: 'hidden', borderTop: '1px solid var(--border)', padding: '14px 0' }}>
       <div className="marquee-track">{[...items, ...items].map((it, i) => <span key={i} className="marquee-item">{it}</span>)}</div>
@@ -97,7 +97,7 @@ const PROJECTS: Project[] = [
     tags: ['AI', 'MEDTECH', 'SIGNAL PROCESSING', 'HARDWARE'],
     filters: ['AI', 'MEDTECH', 'HARDWARE'],
     img: '/yafi-portfolio/assets/ludesc/cover.png',
-    alt: 'Hands holding the LUDESC digital stethoscope device',
+    alt: 'LUDESC digital stethoscope device',
     col: 7, h: 600,
   },
   {
@@ -115,7 +115,7 @@ const PROJECTS: Project[] = [
     tags: ['IoT', 'HARDWARE', 'GPS', 'BLE'],
     filters: ['IoT', 'HARDWARE'],
     img: '/yafi-portfolio/assets/Smart Hazard Triangle/cover.png',
-    alt: 'Night street scene representing smart roadside safety',
+    alt: 'Smart roadside safety system',
     col: 4, h: 480,
   },
   {
@@ -124,7 +124,7 @@ const PROJECTS: Project[] = [
     tags: ['AI', 'EEG', 'SIGNAL', 'NEURO'],
     filters: ['AI', 'RESEARCH'],
     img: '/yafi-portfolio/assets/ASD detection/cover.png',
-    alt: 'Abstract blue wave signal representing EEG brainwave patterns',
+    alt: 'EEG brainwave patterns analysis',
     col: 8, h: 480,
   },
   {
@@ -133,7 +133,7 @@ const PROJECTS: Project[] = [
     tags: ['AI', 'GEOSPATIAL', 'DRONE', 'ESG'],
     filters: ['AI', 'RESEARCH'],
     img: '/yafi-portfolio/assets/Croptic/cover.png',
-    alt: 'Aerial view of plantation rows for RSPO compliance',
+    alt: 'Aerial view of plantation rows',
     col: 12, h: 380,
   },
 ]
@@ -176,7 +176,6 @@ function HomePage({ navigate }: { navigate: (p: Page) => void }) {
           </div>
         ))}
 
-        {/* Index cards at bottom */}
         <div className="home-hero-index">
           {slides.map((s, i) => (
             <button
@@ -197,7 +196,7 @@ function HomePage({ navigate }: { navigate: (p: Page) => void }) {
       <section className="home-intro">
         <div className="home-intro-inner">
           <h2 className="home-intro-text">
-            Hello! I'm Yafi, a designer creating holistic experiences and systems rooted in empathy, care, and a love for detail. 🔍
+            Hello! I'm Al Yafi, a designer creating holistic experiences and systems rooted in empathy, care, and a love for detail. 🔍
           </h2>
           <h2 className="home-intro-text">
             I connect hardware, software, services, and intelligence into cohesive ecosystems, designing experiences that make life easier and leave a lasting impact. 🚀
@@ -216,7 +215,7 @@ function HomePage({ navigate }: { navigate: (p: Page) => void }) {
           <button className="home-gallery-all" onClick={() => navigate('works')}>View All</button>
         </div>
         <div className="home-gallery-grid">
-          {PROJECTS.slice(0, 5).map(p => (
+          {PROJECTS.map(p => (
             <div key={p.id} className="home-gallery-card" onClick={() => {
               if (p.id === 'croptic') {
                 window.open('https://croptic.co/', '_blank');
@@ -321,7 +320,12 @@ function WorksPage({ navigate }: { navigate: (p: Page) => void }) {
               data-cur
               className={`tile ${hidden ? 'filtered-out' : ''}`}
               style={{ gridColumn: `span ${p.col}`, height: p.h }}
-              onClick={() => !hidden && navigate(p.id)}
+              onClick={() => {
+                if (!hidden) {
+                  if (p.id === 'croptic') window.open('https://croptic.co/', '_blank');
+                  else navigate(p.id);
+                }
+              }}
             >
               <img className="tile-img" src={p.img} alt={p.alt} loading="lazy" />
               <div className="tile-overlay" />
@@ -356,359 +360,260 @@ function LudescPage({ navigate }: { navigate: (p: Page) => void }) {
   const { ref: r10, on: o10 } = useReveal(0.08)
   const { ref: r11, on: o11 } = useReveal(0.08)
   const { ref: r12, on: o12 } = useReveal(0.08)
-  const { ref: r13, on: o13 } = useReveal(0.08)
-  const { ref: r14, on: o14 } = useReveal(0.08)
-  const { ref: r15, on: o15 } = useReveal(0.08)
 
   return (
     <div className="page-enter">
-      {/* SECTION 01 — OPENING / THE PROJECT */}
+      {/* 1. LUDESC SUMMARY */}
       <div className="cs-hero">
-        <img src="/yafi-portfolio/assets/ludesc/cover.png" alt="LUDESC wireless digital stethoscope" />
+        <img src="/yafi-portfolio/assets/ludesc/cover.png" alt="LUDESC Project Cover" />
         <div className="cs-hero-inner">
-          <div className="cs-hero-label">LUDESC / HEALTHCARE AI</div>
-          <h1 className="cs-title">Building a Stethoscope for a More Connected Healthcare System</h1>
+          <div className="cs-hero-label">PROJECT 01 — LUDESC</div>
+          <h1 className="cs-title">Wireless Digital Stethoscope + AI + Telemedicine Ecosystem</h1>
           <div className="cs-meta">
-            <div className="cs-meta-item">
-              <span className="cs-meta-label">Introduction</span>
-              <span className="cs-meta-val" style={{ maxWidth: 500, lineHeight: 1.6 }}>
-                LUDESC began with a simple question: what if lung sounds could be digitized, analyzed, and shared instead of remaining trapped inside a conventional stethoscope?
-              </span>
-            </div>
-            <div className="cs-meta-item"><span className="cs-meta-label">Type</span><span className="cs-meta-val">AI · MedTech · Hardware</span></div>
+            <div className="cs-meta-item"><span className="cs-meta-label">Role</span><span className="cs-meta-val">Solo Developer / Engineer</span></div>
+            <div className="cs-meta-item"><span className="cs-meta-label">Type</span><span className="cs-meta-val">AI · MedTech · Systems</span></div>
           </div>
         </div>
       </div>
 
       <div className="cs-body">
-        {/* SECTION 02 — THE PROBLEM */}
+        {/* 2. THE STORY BEGINS / REASON */}
         <div className="cs-section" ref={r1}>
           <div className="cs-2col">
             <div>
-              <p className={`mono-label rv ${o1 ? 'on' : ''}`} style={{ marginBottom: 20, color: 'var(--accent)' }}>The Problem</p>
+              <p className={`mono-label rv ${o1 ? 'on' : ''}`} style={{ marginBottom: 20, color: 'var(--accent)' }}>The Reason</p>
               <h2 className={`section-heading rv d1 ${o1 ? 'on' : ''}`}>
-                Making Healthcare Safer With LUDESC
+                Beyond the Sound.
               </h2>
             </div>
             <div className={`rv d2 ${o1 ? 'on' : ''}`} style={{ paddingTop: 16 }}>
               <p className="body-text" style={{ marginBottom: 20 }}>
-                Traditional auscultation depends heavily on what a healthcare professional can hear and interpret in the moment. This analog interaction creates significant barriers to reliable respiratory care.
-              </p>
-              <p className="body-text" style={{ marginBottom: 20 }}>
-                Subjective interpretation, the difficulty of documenting sounds, and limited access to remote specialists often delay critical diagnostics. The larger goal was to turn this analog clinical interaction into a digital healthcare workflow.
+                Traditional auscultation is limited by what a healthcare professional can interpret in the moment. The project was born from a need to bridge the gap in remote healthcare, where access to specialists is scarce and subjective interpretation can lead to delayed care.
               </p>
             </div>
           </div>
         </div>
 
-        {/* SECTION 03 — THE IDEA */}
-        <div className="cs-section" ref={r2} style={{ background: 'var(--tile-dark)', color: '#fff', borderTop: 'none' }}>
-          <div className="cs-2col" style={{ alignItems: 'center' }}>
-            <div className={`rv ${o2 ? 'on' : ''}`}>
-              <p className="mono-label" style={{ marginBottom: 20, color: 'rgba(255,255,255,0.4)' }}>THE IDEA / TURNING CURIOSITY INTO DIRECTION</p>
-              <h3 className="section-heading" style={{ color: '#fff', fontSize: 'clamp(28px, 4vw, 56px)', marginBottom: 32 }}>
-                "What if lung sounds could be digitized, analyzed, and shared?"
-              </h3>
-              <p className="body-text" style={{ color: 'rgba(255,255,255,0.6)' }}>
-                This wasn't just about curiosity; it was about defining a concrete engineering problem. The journey from capture to communication required a systematic pipeline: Capture → Digitize → Analyze → Communicate → Assist.
-              </p>
-            </div>
-            <div className={`rv d2 ${o2 ? 'on' : ''}`}>
-              <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=1200&h=1200&fit=crop&q=85" alt="Abstract diagnostic visualization" style={{ borderRadius: 0, filter: 'brightness(0.8)' }} />
-            </div>
+        {/* 3. THE QUESTION / IDEA */}
+        <div style={{ padding: '0 60px 80px', borderBottom: '1px solid var(--border)' }} ref={r2}>
+          <div className={`rv ${o2 ? 'on' : ''}`} style={{
+            fontSize: 'clamp(22px, 3.5vw, 52px)', fontWeight: 700,
+            letterSpacing: '-0.03em', lineHeight: 1.1,
+            borderLeft: '3px solid var(--accent)', paddingLeft: 36, color: 'var(--ink)',
+          }}>
+            "What if lung sounds could be digitized, analyzed, and shared safely anywhere in the world?"
           </div>
         </div>
 
-        {/* SECTION 04 — THE METHOD */}
+        {/* 4. THE METHOD */}
         <div className="cs-section" ref={r3}>
-          <div className="cs-2col">
-            <div>
-              <p className={`mono-label rv ${o3 ? 'on' : ''}`} style={{ marginBottom: 20 }}>The Method / How I Built It</p>
-              <p className={`body-text rv d1 ${o3 ? 'on' : ''}`}>
-                LUDESC was developed through iterative engineering rather than a single implementation. It required working across physical hardware, electronics, signal processing, machine learning, software, and strict healthcare requirements.
-              </p>
-            </div>
-            <div className={`rv d2 ${o3 ? 'on' : ''}`}>
-              <div className="pipeline" style={{ marginTop: 0 }}>
-                {['Research', 'Hardware Experimentation', 'Signal Acquisition', 'Prototype', 'Data Collection', 'AI Development', 'Software', 'System Integration', 'Validation', 'Real-world Implementation'].map((step, i) => (
-                  <div key={step}>
-                    <div className="pipe-node">
-                      <div className="pipe-dot active" />
-                      <span className="pipe-label active">{step}</span>
-                    </div>
-                    {i < 9 && <div className="pipe-line" />}
-                  </div>
-                ))}
+          <p className={`mono-label rv ${o3 ? 'on' : ''}`} style={{ marginBottom: 40 }}>The Method / Layered Engineering</p>
+          <p className={`body-text rv d1 ${o3 ? 'on' : ''}`} style={{ marginBottom: 40, maxWidth: 800 }}>
+             I broke the complex challenge of digital healthcare into clear engineering layers: from capturing physiological signals to ensuring clinical usability and business readiness.
+          </p>
+          <div className="cs-3col">
+            {[
+              { l: 'SOUND ACQUISITION', d: 'Hardware & Sensor Engineering' },
+              { l: 'AI DEVELOPMENT', d: 'Deep Learning (ViT + RAN)' },
+              { l: 'TELEMEDICINE', d: 'Human-Centric Application' },
+              { l: 'INTEGRATION', d: 'Full Ecosystem Synergy' },
+              { l: 'BUSINESS', d: 'Productization & Packaging' },
+            ].map((m, i) => (
+              <div key={m.l} className={`cs-stat-cell rv d${i} ${o3 ? 'on' : ''}`} style={{ padding: '32px 0', borderRight: 'none', borderTop: '1px solid var(--border)' }}>
+                <div style={{ fontSize: 13, fontWeight: 800, marginBottom: 8 }}>{m.l}</div>
+                <span className="cs-stat-label" style={{ fontSize: 10 }}>{m.d}</span>
               </div>
-            </div>
+            ))}
           </div>
         </div>
 
-        {/* SECTION 05 — DATA ACQUISITION */}
-        <div className="cs-section" ref={r4} style={{ paddingBottom: 0 }}>
-          <div className="cs-2col" style={{ gap: 40 }}>
-            <div className={`rv ${o4 ? 'on' : ''}`}>
-              <img src="/yafi-portfolio/assets/work_hero/hard-software.png" alt="Hardware signal capture detail" style={{ height: 500, objectFit: 'cover' }} />
+        {/* 5. START TO BUILD EACH LAYER */}
+        <div className="cs-section" ref={r4}>
+          <div className="cs-sidebyside">
+            <div style={{ height: 460 }} className={`rv d1 ${o4 ? 'on' : ''}`}>
+              <img src="/yafi-portfolio/assets/ludesc/prcs_1.png" alt="Engineering Layer 1" style={{ height: '100%' }} />
             </div>
-            <div className={`rv d1 ${o4 ? 'on' : ''}`} style={{ alignSelf: 'center' }}>
-              <p className="mono-label" style={{ marginBottom: 20 }}>Engineering the First Connection</p>
-              <h3 className="section-heading" style={{ fontSize: 'clamp(24px, 3vw, 42px)', marginBottom: 24 }}>Capturing Usable Data</h3>
-              <p className="body-text">
-                The challenge was not simply recording audio. The system had to create a reliable connection between: patient → sensor → hardware → digital signal → AI pipeline. Engineering focus remained on acoustic capture, sensor integration, and signal quality to ensure repeatability for machine learning.
-              </p>
+            <div style={{ height: 460 }} className={`rv d2 ${o4 ? 'on' : ''}`}>
+              <img src="/yafi-portfolio/assets/ludesc/prcs_2.png" alt="Engineering Layer 2" style={{ height: '100%' }} />
             </div>
+          </div>
+          <div className={`rv d3 ${o4 ? 'on' : ''}`} style={{ marginTop: 40 }}>
+            <p className="body-text">
+               Every layer required rigorous experimentation—from electronic blueprints and component selection to signal filtering and transmission protocols.
+            </p>
           </div>
         </div>
 
-        {/* SECTION 06 — FIRST PROTOTYPE */}
+        {/* 6. FIRST PROTOTYPE 1.0 */}
         <div className="cs-section" ref={r5}>
           <div className="cs-2col">
             <div className={`rv ${o5 ? 'on' : ''}`}>
-              <p className="mono-label" style={{ marginBottom: 20 }}>Building the First Prototype</p>
-              <p className="body-text" style={{ marginBottom: 32 }}>
-                The first prototype was deliberately simple. The goal was not to make it beautiful. The goal was to prove that the idea could work. Imperfect and honest, it moved from breadboard circuits to the first enclosure.
+              <p className="mono-label" style={{ marginBottom: 20 }}>Prototype 1.0</p>
+              <h2 className="section-heading" style={{ marginBottom: 24 }}>The First Functional Build.</h2>
+              <p className="body-text">
+                The 1.0 version was about proof of concept. It moved from breadboard circuits to a first functional enclosure, proving that wireless digital auscultation was not just possible, but viable.
               </p>
-              <div className="cs-meta" style={{ marginTop: 0, paddingTop: 20, borderTop: '1px solid var(--border)' }}>
-                 <div className="cs-meta-item"><span className="cs-meta-label">Evolution</span><span className="cs-meta-val" style={{ color: 'var(--ink)' }}>Concept → Circuit → Prototype</span></div>
-              </div>
             </div>
             <div className={`rv d2 ${o5 ? 'on' : ''}`}>
-              <img src="https://images.unsplash.com/photo-1555664424-778a1e5e1b48?w=1000&h=800&fit=crop&q=80" alt="Early electronics assembly" />
+              <img src="/yafi-portfolio/assets/ludesc/eng_1.png" alt="First Prototype" />
             </div>
           </div>
         </div>
 
-        {/* SECTION 07 — LUDESC 1.0 */}
-        <div className="cs-fullbleed" style={{ height: '60vh' }}>
-          <img src="https://images.unsplash.com/photo-1516549655169-df83a0774514?w=1800&h=900&fit=crop&q=90" alt="Clinical testing of LUDESC 1.0" style={{ height: '100%', filter: 'brightness(0.9)' }} />
-          <div style={{ position: 'absolute', bottom: 40, left: 60, color: '#fff' }}>
-             <p className="mono-label" style={{ color: '#fff', opacity: 0.8, marginBottom: 8 }}>SECTION 07 — LUDESC 1.0</p>
-             <h3 style={{ fontSize: 32, fontWeight: 800 }}>Building the 1.0</h3>
-             <p style={{ fontSize: 14, opacity: 0.7, maxWidth: 400 }}>Transforming the concept from an experiment into a usable device with wireless transmission and compact hardware.</p>
+        {/* 7. PROTOTYPE TO INDUSTRIAL DESIGN (2.0) */}
+        <div className="cs-section" ref={r6} style={{ background: '#f9f9f7' }}>
+          <p className="mono-label" style={{ marginBottom: 40 }}>Building the 2.0</p>
+          <div className="more-works" style={{ gridTemplateColumns: 'repeat(4, 1fr)', background: 'none', padding: 0 }}>
+             <img src="/yafi-portfolio/assets/ludesc/dsn_1.png" alt="Design 1" className={`rv d1 ${o6 ? 'on' : ''}`} />
+             <img src="/yafi-portfolio/assets/ludesc/dsn_2.png" alt="Design 2" className={`rv d2 ${o6 ? 'on' : ''}`} />
+             <img src="/yafi-portfolio/assets/ludesc/dsn_3.png" alt="Design 3" className={`rv d3 ${o6 ? 'on' : ''}`} />
+             <img src="/yafi-portfolio/assets/ludesc/dsn_4.png" alt="Design 4" className={`rv d4 ${o6 ? 'on' : ''}`} />
+          </div>
+          <div className={`rv d5 ${o6 ? 'on' : ''}`} style={{ marginTop: 40, maxWidth: 800 }}>
+             <h3 className="section-heading" style={{ fontSize: 32, marginBottom: 20 }}>From Lab to Life.</h3>
+             <p className="body-text">
+                The transition toward industrial design focused on ergonomics, portability, and interaction. The hardware had to stop behaving like an experiment and start feeling like a clinical tool.
+             </p>
           </div>
         </div>
 
-        {/* SECTION 08 — LUDESC 2.0 */}
-        <div className="cs-section" ref={r6}>
-          <p className={`mono-label rv ${o6 ? 'on' : ''}`} style={{ marginBottom: 40 }}>Building the 2.0</p>
-          <div className="cs-sidebyside">
-            <div style={{ height: 500 }} className={`rv d1 ${o6 ? 'on' : ''}`}>
-              <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=900&h=1000&fit=crop&q=85" alt="Refined electronics integration" style={{ height: '100%' }} />
-            </div>
-            <div style={{ height: 500 }} className={`rv d2 ${o6 ? 'on' : ''}`}>
-              <img src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=900&h=1000&fit=crop&q=85" alt="Assembly of 2.0 prototype" style={{ height: '100%' }} />
-            </div>
-          </div>
-          <div className={`rv d3 ${o6 ? 'on' : ''}`} style={{ marginTop: 40, maxWidth: 600 }}>
-            <p className="body-text">
-              The project matured through iteration. Later hardware versions focused on physical form, electronics integration, and overall reliability, moving LUDESC toward a product-oriented device.
-            </p>
-          </div>
-        </div>
-
-        {/* SECTION 09 — FROM PROTOTYPE TO INDUSTRIAL DESIGN */}
-        <div className="cs-section" ref={r7} style={{ background: '#f9f9f7' }}>
+        {/* 8. AI DEVELOPMENT CORE */}
+        <div className="cs-section" ref={r7}>
           <div className="cs-2col">
-            <div className={`rv ${o7 ? 'on' : ''}`}>
-              <p className="mono-label" style={{ marginBottom: 20 }}>Industrial Design</p>
-              <h2 className="section-heading" style={{ marginBottom: 24 }}>From Prototype to Industrial Design</h2>
-              <p className="body-text">
-                The hardware had to stop looking like a laboratory experiment and start behaving like something that could exist in the real world. We focused on ergonomics, portability, and manufacturability.
-              </p>
-            </div>
-            <div className={`rv d2 ${o7 ? 'on' : ''}`}>
-              <img src="/yafi-portfolio/assets/work_hero/3d.png" alt="3D model of LUDESC enclosure" style={{ width: '100%', borderRadius: 0 }} />
-            </div>
+             <div className={`rv ${o7 ? 'on' : ''}`}>
+                <p className="mono-label" style={{ marginBottom: 20, color: 'var(--accent)' }}>AI Core</p>
+                <h2 className="section-heading">Vision Transformer + RAN.</h2>
+                <p className="body-text" style={{ marginTop: 24 }}>
+                   Intelligence is the heart of LUDESC. The system utilizes a hybrid ViT and Recurrent Attention Network architecture to analyze temporal breathing cycles and global acoustic patterns.
+                </p>
+                <div className="cs-stat-cell" style={{ padding: '32px 0', border: 'none' }}>
+                   <div className="cs-stat-val" style={{ fontSize: 64 }}>99%</div>
+                   <span className="cs-stat-label">Model reported accuracy</span>
+                </div>
+             </div>
+             <div className={`rv d2 ${o7 ? 'on' : ''}`}>
+                <img src="/yafi-portfolio/assets/ludesc/eng_3.png" alt="AI Model Development" />
+             </div>
           </div>
         </div>
 
-        {/* SECTION 10 — AI */}
+        {/* 9. TELEMEDICINE APP / 10. RESULTS */}
         <div className="cs-section" ref={r8}>
-          <div className="cs-2col">
-            <div className={`rv ${o8 ? 'on' : ''}`}>
-              <p className="mono-label" style={{ marginBottom: 20, color: 'var(--accent)' }}>AI Development</p>
-              <h3 className="section-heading" style={{ fontSize: 'clamp(26px, 3.5vw, 48px)', marginBottom: 24 }}>Intelligence at the Core</h3>
-              <p className="body-text" style={{ marginBottom: 20 }}>
-                The foundation of LUDESC is an AI system capable of analyzing complex lung sound patterns. Using a hybrid Vision Transformer (ViT) and RAN architecture, the model classifies respiratory signals with clinical precision.
-              </p>
-              <div className="cs-3col" style={{ gridTemplateColumns: 'repeat(2, 1fr)', gap: 20 }}>
-                 <div className="cs-stat-cell" style={{ padding: '24px 0', border: 'none' }}>
-                    <div className="cs-stat-val" style={{ fontSize: 44 }}>32k+</div>
-                    <span className="cs-stat-label">Samples Trained</span>
-                 </div>
-                 <div className="cs-stat-cell" style={{ padding: '24px 0', border: 'none' }}>
-                    <div className="cs-stat-val" style={{ fontSize: 44 }}>99%</div>
-                    <span className="cs-stat-label">Model Accuracy</span>
-                 </div>
-              </div>
-            </div>
-            <div className={`rv d2 ${o8 ? 'on' : ''}`}>
-              <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1000&h=800&fit=crop&q=80" alt="Signal processing visualization" />
-            </div>
-          </div>
-        </div>
-
-        {/* SECTION 11 — TELEMEDICINE */}
-        <div className="cs-section" ref={r9}>
-          <div className={`rv ${o9 ? 'on' : ''}`} style={{ textAlign: 'center', maxWidth: 800, margin: '0 auto 60px' }}>
-            <p className="mono-label" style={{ marginBottom: 20 }}>Telemedicine Application</p>
-            <h2 className="section-heading">Designed for Humans, Not Manuals</h2>
+          <div className={`rv ${o8 ? 'on' : ''}`} style={{ textAlign: 'center', maxWidth: 800, margin: '0 auto 60px' }}>
+            <p className="mono-label" style={{ marginBottom: 20 }}>Designed for Humans, Not Manuals</p>
+            <h2 className="section-heading">Telemedicine Interface.</h2>
             <p className="body-text">
-              LUDESC could not stop at hardware and AI. The telemedicine application connects patient data, auscultation data, and AI analysis with healthcare professionals through a workflow-centric interface.
+              The application connects patient data with AI-driven clinical insights. It was designed to prioritize the healthcare professional's workflow, ensuring that technology assists rather than complicates.
             </p>
           </div>
-          <div className="more-works" style={{ gridTemplateColumns: 'repeat(2, 1fr)', background: 'none', padding: 0 }}>
-             <img src="/yafi-portfolio/assets/work_hero/app_dev.png" alt="Mobile App UI 1" className={`rv d1 ${o9 ? 'on' : ''}`} />
-             <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=900&h=700&fit=crop&q=80" alt="Mobile App UI 2" className={`rv d2 ${o9 ? 'on' : ''}`} />
+          <div className={`rv d2 ${o8 ? 'on' : ''}`} style={{ background: 'var(--tile-dark)', padding: '60px', textAlign: 'center' }}>
+             <img src="/yafi-portfolio/assets/ludesc/UI_1.png" alt="Telemedicine Results" style={{ maxHeight: 600, margin: '0 auto' }} />
           </div>
         </div>
 
-        {/* SECTION 12 — DESIGNING WITH DATA */}
-        <div className="cs-section" ref={r10} style={{ borderBottom: 'none' }}>
-           <div className="cs-2col" style={{ alignItems: 'center' }}>
-              <div className={`rv ${o10 ? 'on' : ''}`}>
-                 <img src="https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=1000&h=1000&fit=crop&q=80" alt="Data flow visualization" />
-              </div>
-              <div className={`rv d1 ${o10 ? 'on' : ''}`}>
-                 <p className="mono-label" style={{ marginBottom: 20 }}>Designing With Data</p>
-                 <h3 className="section-heading" style={{ fontSize: 32 }}>Designing With Data, Not Assumptions</h3>
-                 <p className="body-text">
-                   The software interface was designed around the information generated by the LUDESC system. Every UI element reflects the real-time flow: Physiological Sound → Digital Data → AI Analysis → Clinical Information.
-                 </p>
-              </div>
-           </div>
-        </div>
-
-        {/* SECTION 13 — THE RESULTS */}
-        <div className="cs-fullbleed" style={{ height: '70vh', background: 'var(--ink)' }}>
-           <div style={{ padding: '80px 60px', color: '#fff' }}>
-              <p className="mono-label" style={{ color: 'rgba(255,255,255,0.4)', marginBottom: 20 }}>The Results / Telemedicine Application</p>
-              <h2 className="section-heading" style={{ color: '#fff', marginBottom: 40 }}>A Connected Ecosystem</h2>
-              <div className="cs-sidebyside" style={{ background: 'none' }}>
-                 <img src="/yafi-portfolio/assets/work_hero/app_dev.png" alt="Result UI 1" style={{ borderRadius: 12, height: 400, objectFit: 'contain' }} />
-                 <img src="/yafi-portfolio/assets/work_hero/app_dev.png" alt="Result UI 2" style={{ borderRadius: 12, height: 400, objectFit: 'contain' }} />
-              </div>
-           </div>
-        </div>
-
-        {/* SECTION 14 — FULL SYSTEM INTEGRATION */}
-        <div className="cs-section" ref={r11}>
-           <div className={`rv ${o11 ? 'on' : ''}`} style={{ marginBottom: 40 }}>
-              <p className="mono-label">Full System Integration</p>
-              <h2 className="section-heading" style={{ marginTop: 12 }}>One Ecosystem</h2>
-           </div>
-           <div className={`rv d1 ${o11 ? 'on' : ''}`} style={{ border: '1px solid var(--border)', padding: 60, textAlign: 'center' }}>
-              <div style={{ display: 'flex', justifyContent: 'center', gap: 20, flexWrap: 'wrap', fontWeight: 700, color: 'var(--accent)' }}>
-                 <span>HARDWARE</span> + <span>DATA</span> + <span>WIRELESS</span> + <span>AI</span> + <span>TELEMEDICINE</span>
-              </div>
-              <p className="body-text" style={{ marginTop: 32, maxWidth: 700, margin: '32px auto 0' }}>
-                 Individual components are no longer separate experiments. They now operate as one ecosystem, connecting hardware, software, and healthcare interaction into a single clinical workflow.
-              </p>
-           </div>
-        </div>
-
-        {/* SECTION 15 — ETHICAL CLEARANCE */}
-        <div className="cs-section" ref={r12}>
-           <div className="cs-2col">
-              <div className={`rv ${o12 ? 'on' : ''}`}>
-                 <p className="mono-label" style={{ marginBottom: 20 }}>Implementation</p>
-                 <h2 className="section-heading">WHO Ethical Clearance & Real-Life Implementation</h2>
-                 <p className="body-text">
-                   Healthcare technology must be developed with appropriate ethical considerations. LUDESC achieved WHO ethical clearance based on a seven-standard framework, marking the transition from prototype to real-world healthcare research.
-                 </p>
-              </div>
-              <div className={`rv d2 ${o12 ? 'on' : ''}`}>
-                 <img src="/yafi-portfolio/assets/work.png" alt="Clinical environment implementation" />
-              </div>
-           </div>
-        </div>
-
-        {/* SECTION 16 — FROM ENGINEERING TO BUSINESS */}
-        <div className="cs-section" ref={r13} style={{ background: 'var(--ink)', color: '#fff' }}>
-           <div className="cs-2col" style={{ alignItems: 'center' }}>
-              <div className={`rv ${o13 ? 'on' : ''}`}>
-                 <img src="https://images.unsplash.com/photo-1532629345422-7515f3d16bb8?w=1000&h=800&fit=crop&q=80" alt="Product packaging concept" />
-              </div>
-              <div className={`rv d1 ${o13 ? 'on' : ''}`}>
-                 <p className="mono-label" style={{ color: 'rgba(255,255,255,0.4)', marginBottom: 20 }}>Product Thinking</p>
-                 <h3 className="section-heading" style={{ color: '#fff', fontSize: 32 }}>Packaging the Technology / From Engineering to Business</h3>
-                 <p className="body-text" style={{ color: 'rgba(255,255,255,0.6)' }}>
-                   Building the technology was only one part of the journey. The project required thinking about product presentation, communication, and business readiness for deployment.
-                 </p>
-              </div>
-           </div>
-        </div>
-
-        {/* SECTION 17 — GOING GLOBAL */}
-        <div className="cs-section" ref={r14}>
-           <div className={`rv ${o14 ? 'on' : ''}`} style={{ marginBottom: 60 }}>
-              <p className="mono-label">Going Global</p>
-              <h2 className="section-heading" style={{ marginTop: 12 }}>Competing at the Highest Level</h2>
-           </div>
-           <div className="more-works" style={{ gridTemplateColumns: 'repeat(3, 1fr)', background: 'none', padding: 0 }}>
-              <img src="/yafi-portfolio/assets/ADA/cover.png" alt="International Presentation" className={`rv d1 ${o14 ? 'on' : ''}`} />
-              <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800&h=600&fit=crop&q=80" alt="Event presentation" className={`rv d2 ${o14 ? 'on' : ''}`} />
-              <img src="https://images.unsplash.com/photo-1591115765373-520b7a21769b?w=800&h=600&fit=crop&q=80" alt="Judge evaluation" className={`rv d3 ${o14 ? 'on' : ''}`} />
-           </div>
-        </div>
-
-        {/* SECTION 18 — ACHIEVEMENTS */}
-        <div style={{ padding: '100px 60px', background: 'var(--ink)', display: 'grid', gridTemplateColumns: 'repeat(2,1fr)', gap: 4 }}>
-          {[
-            { a: 'Gold Winner', o: 'ASEAN DIGITAL AWARDS 2025', d: 'Selected among top innovations in Southeast Asia.' },
-            { a: 'Top 100', o: 'DUBAI FUTURE SOLUTIONS', d: 'Selected among more than 2,800 global submissions.' },
-            { a: '2nd Runner-up', o: 'INDONESIA AI INNOVATION CHALLENGE 2023', d: 'Recognized for pioneering AI in healthcare.' },
-            { a: 'Certified', o: 'WHO ETHICAL CLEARANCE', d: 'Documented using the seven-standard framework.' },
-          ].map((r, i) => (
-            <div key={r.o} style={{ padding: '40px', border: '1px solid rgba(255,255,255,0.08)' }}>
-              <div style={{ fontSize: 'clamp(20px, 2.5vw, 32px)', fontWeight: 800, color: '#fff', marginBottom: 12 }}>{r.a}</div>
-              <p style={{ fontFamily: 'var(--mono)', fontSize: 10, letterSpacing: '0.15em', color: 'var(--accent)', textTransform: 'uppercase', marginBottom: 16 }}>{r.o}</p>
-              <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.5)', lineHeight: 1.6 }}>{r.d}</p>
+        {/* 11. FULL SYSTEM INTEGRATION */}
+        <div className="cs-section" ref={r9}>
+          <div className="cs-2col" style={{ alignItems: 'center' }}>
+            <div className={`rv ${o9 ? 'on' : ''}`}>
+               <p className="mono-label">One Ecosystem</p>
+               <h2 className="section-heading" style={{ fontSize: 'clamp(28px, 4vw, 52px)' }}>Hardware and Application Synergy.</h2>
             </div>
-          ))}
+            <div className={`rv d1 ${o9 ? 'on' : ''}`}>
+               <p className="body-text">
+                  Individual components—the stethoscope, the wireless bridge, the AI models, and the UI—now operate as a single unified system. This integration allows for seamless clinical decision support from the first breath to the final diagnosis.
+               </p>
+            </div>
+          </div>
         </div>
 
-        {/* SECTION 19 — THE FINAL STATE */}
-        <div className="cs-section" ref={r15} style={{ borderBottom: 'none', paddingBottom: 120 }}>
-           <div className={`rv ${o15 ? 'on' : ''}`} style={{ maxWidth: 700 }}>
-              <p className="mono-label" style={{ marginBottom: 20 }}>LUDESC Today</p>
-              <h2 className="section-heading" style={{ marginBottom: 32 }}>Transforming an initial idea into a working ecosystem.</h2>
+        {/* 12. ETHICAL CLEARANCE & REAL LIFE IMPLEMENTATION */}
+        <div className="cs-fullbleed" style={{ height: '70vh' }}>
+          <img src="/yafi-portfolio/assets/ludesc/prcs_5.png" alt="Clinical Implementation" style={{ height: '100%', filter: 'brightness(0.9)' }} />
+          <div style={{ position: 'absolute', bottom: 40, left: 60, color: '#fff' }}>
+             <p className="mono-label" style={{ color: '#fff', opacity: 0.8, marginBottom: 8 }}>Validation</p>
+             <h3 style={{ fontSize: 32, fontWeight: 800 }}>WHO Ethical Clearance.</h3>
+             <p style={{ fontSize: 14, opacity: 0.7, maxWidth: 450 }}>Marking the transition to real-world healthcare research, documented using the seven-standard ethical framework.</p>
+          </div>
+        </div>
+
+        {/* 13. PACKAGING THE TECHNOLOGY */}
+        <div className="cs-section" ref={r10}>
+           <div className="cs-2col">
+              <div className={`rv ${o10 ? 'on' : ''}`}>
+                 <img src="/yafi-portfolio/assets/ludesc/prcs_4.png" alt="Technology Packaging" />
+              </div>
+              <div className={`rv d1 ${o10 ? 'on' : ''}`} style={{ alignSelf: 'center' }}>
+                 <p className="mono-label" style={{ marginBottom: 20 }}>From Engineering to Business</p>
+                 <h2 className="section-heading">Packaging the Technology.</h2>
+                 <p className="body-text">
+                   The journey required moving beyond engineering toward product readiness. This included branding, presentation, and system visuals that communicate the maturity of the LUDESC platform.
+                 </p>
+              </div>
+           </div>
+        </div>
+
+        {/* 14. GOING GLOBAL */}
+        <div className="cs-section" ref={r11}>
+           <div className={`rv ${o11 ? 'on' : ''}`} style={{ marginBottom: 60 }}>
+              <p className="mono-label">Going Global</p>
+              <h2 className="section-heading" style={{ marginTop: 12 }}>Competing at the Highest Level.</h2>
+           </div>
+           <div className="grid-wrap" style={{ background: 'none' }}>
+              {[
+                { s: 4, i: '/yafi-portfolio/assets/ludesc/1.png' },
+                { s: 8, i: '/yafi-portfolio/assets/ludesc/2.png' },
+                { s: 5, i: '/yafi-portfolio/assets/ludesc/3.png' },
+                { s: 7, i: '/yafi-portfolio/assets/ludesc/5.png' },
+                { s: 6, i: '/yafi-portfolio/assets/ludesc/6.png' },
+                { s: 6, i: '/yafi-portfolio/assets/ludesc/7.png' },
+                { s: 4, i: '/yafi-portfolio/assets/ludesc/8.png' },
+                { s: 8, i: '/yafi-portfolio/assets/ludesc/9.png' },
+              ].map((img, i) => (
+                <div key={i} className={`tile rv d${i%5} ${o11 ? 'on' : ''}`} style={{ gridColumn: `span ${img.s}`, height: 360 }}>
+                   <img className="tile-img" src={img.i} alt="" loading="lazy" />
+                </div>
+              ))}
+           </div>
+        </div>
+
+        {/* 15. SUMMARY */}
+        <div className="cs-section" ref={r12} style={{ borderBottom: 'none', paddingBottom: 120 }}>
+           <div className={`rv ${o12 ? 'on' : ''}`} style={{ maxWidth: 800 }}>
+              <p className="mono-label" style={{ marginBottom: 20, color: 'var(--accent)' }}>Summary</p>
+              <h2 className="section-heading" style={{ fontSize: 'clamp(32px, 5vw, 64px)', marginBottom: 32 }}>Built Solo. From Idea to Global Stage.</h2>
               <p className="body-text">
-                LUDESC evolved from a simple question into a wireless digital stethoscope, an AI system, and a telemedicine application. The most important achievement was not any single component, but the integration of hardware, intelligence, and software into a real-world healthcare workflow.
+                LUDESC is the result of transforming a single curiosity into a validated healthcare ecosystem. From the first breadboard circuit to being recognized as a Gold Winner at the ASEAN Digital Awards 2025, the project proves that engineering focused on real-world impact can compete on the world's highest stages.
               </p>
            </div>
-           <div className={`rv d2 ${o15 ? 'on' : ''}`} style={{ marginTop: 80 }}>
-              <img src="/yafi-portfolio/assets/ludesc/cover.png" alt="Final LUDESC Product" style={{ width: '100%', maxHeight: '80vh', objectFit: 'cover' }} />
+           <div className={`rv d2 ${o12 ? 'on' : ''}`} style={{ marginTop: 80 }}>
+              <img src="/yafi-portfolio/assets/ludesc/10.png" alt="Global Recognition" style={{ width: '100%', maxHeight: '80vh', objectFit: 'cover' }} />
            </div>
         </div>
 
-        {/* VISUAL GALLERY */}
+        {/* VISUAL ARCHIVE GALLERY */}
         <div style={{ padding: '60px 60px 20px', borderTop: '1px solid var(--border)' }}>
-          <p className="mono-label">Project Archive / Visual Timeline</p>
+          <p className="mono-label">Project Archive / Visual History</p>
         </div>
         <div className="grid-wrap" style={{ padding: 4 }}>
           {[
-            { l: '01 Ideation', i: 'https://images.unsplash.com/photo-1503551723145-6c040742065b?w=800&h=800&fit=crop&q=80', c: 3 },
-            { l: '02 Research', i: 'https://images.unsplash.com/photo-1532187875605-2fe359379ee2?w=800&h=800&fit=crop&q=80', c: 3 },
-            { l: '03 Electronics', i: '/yafi-portfolio/assets/work_hero/hard-software.png', c: 6 },
-            { l: '04 First Prototype', i: 'https://images.unsplash.com/photo-1555664424-778a1e5e1b48?w=800&h=800&fit=crop&q=80', c: 4 },
-            { l: '05 LUDESC 1.0', i: 'https://images.unsplash.com/photo-1516549655169-df83a0774514?w=800&h=800&fit=crop&q=80', c: 8 },
-            { l: '06 LUDESC 2.0', i: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800&h=800&fit=crop&q=80', c: 6 },
-            { l: '07 Design', i: '/yafi-portfolio/assets/work_hero/3d.png', c: 6 },
-            { l: '08 Acquisition', i: '/yafi-portfolio/assets/work.png', c: 5 },
-            { l: '09 AI', i: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=800&fit=crop&q=80', c: 7 },
-            { l: '10 Software', i: '/yafi-portfolio/assets/work_hero/app_dev.png', c: 12 },
-            { l: '11 Integration', i: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&h=800&fit=crop&q=80', c: 4 },
-            { l: '12 Ethical', i: 'https://images.unsplash.com/photo-1581092921461-eab62e97a780?w=800&h=800&fit=crop&q=80', c: 4 },
-            { l: '13 Clinical', i: 'https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=800&h=800&fit=crop&q=80', c: 4 },
-            { l: '14 Global', i: '/yafi-portfolio/assets/ADA/cover.png', c: 7 },
-            { l: '15 Awards', i: 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800&h=800&fit=crop&q=80', c: 5 },
+            { i: '/yafi-portfolio/assets/ludesc/cover.png', c: 6 },
+            { i: '/yafi-portfolio/assets/ludesc/eng_1.png', c: 3 },
+            { i: '/yafi-portfolio/assets/ludesc/eng_02.png', c: 3 },
+            { i: '/yafi-portfolio/assets/ludesc/prcs_1.png', c: 4 },
+            { i: '/yafi-portfolio/assets/ludesc/prcs_2.png', c: 4 },
+            { i: '/yafi-portfolio/assets/ludesc/prcs_3.png', c: 4 },
+            { i: '/yafi-portfolio/assets/ludesc/dsn_1.png', c: 3 },
+            { i: '/yafi-portfolio/assets/ludesc/dsn_2.png', c: 3 },
+            { i: '/yafi-portfolio/assets/ludesc/dsn_3.png', c: 3 },
+            { i: '/yafi-portfolio/assets/ludesc/dsn_4.png', c: 3 },
+            { i: '/yafi-portfolio/assets/ludesc/eng_3.png', c: 7 },
+            { i: '/yafi-portfolio/assets/ludesc/UI_1.png', c: 5 },
+            { i: '/yafi-portfolio/assets/ludesc/prcs_4.png', c: 6 },
+            { i: '/yafi-portfolio/assets/ludesc/prcs_5.png', c: 6 },
+            { i: '/yafi-portfolio/assets/ludesc/9.png', c: 12 },
           ].map((item, i) => (
             <div key={i} className="tile" style={{ gridColumn: `span ${item.c}`, height: 320 }}>
-               <img className="tile-img" src={item.i} alt={item.l} loading="lazy" />
-               <div className="tile-info">
-                  <div className="tile-name" style={{ fontSize: 14 }}>{item.l}</div>
-               </div>
+               <img className="tile-img" src={item.i} alt="" loading="lazy" />
             </div>
           ))}
         </div>
@@ -740,25 +645,25 @@ function GenericStudy({ id, navigate }: { id: Page; navigate: (p: Page) => void 
   const { ref, on } = useReveal(0.08)
   const details: Record<string, { img: string; challenge: string; approach: string; outcome: string }> = {
     gcov: {
-      img: 'https://images.unsplash.com/photo-1530497610245-94d3c16cda28?w=1800&h=900&fit=crop&auto=format&q=85',
+      img: '/yafi-portfolio/assets/G-cov/cover.png',
       challenge: 'Detecting COVID-19 severity quickly and reliably without overwhelming hospital infrastructure — especially in regions where specialist radiologists are scarce.',
       approach: 'Deep learning system using VGG16 architecture, trained on 800 chest X-rays from RSUDZA Hospital. Integrated with wearable biosensors (temperature, pulse, SpO₂) for continuous monitoring and an asynchronous telemedicine module for direct treatment guidance.',
       outcome: '95% classification accuracy across COVID-19 severity grades. AI-powered chest X-ray analysis combined with wearable monitoring creates a safer, smarter bridge between medical workers and patients — especially in areas with limited access to timely healthcare.',
     },
     hazard: {
-      img: 'https://images.unsplash.com/photo-1582472978953-12929ab18f3e?w=1800&h=900&fit=crop&auto=format&q=85',
+      img: '/yafi-portfolio/assets/Smart Hazard Triangle/cover.png',
       challenge: 'When a vehicle stops due to an emergency, nearby drivers should be warned before they can visually see the hazard — especially on curved or high-speed roads at night.',
       approach: 'The hazard triangle continuously broadcasts its presence via Bluetooth Low Energy (BLE) while simultaneously sharing its real-time GPS location. Nearby vehicles automatically receive hazard alerts displaying the precise location on a digital map. Hardware: electronics, power management, enclosure. Embedded: GPS + BLE logic. Mobile: UI/UX for real-time hazard awareness and SOS.',
       outcome: 'A smart hazard triangle that transforms passive roadside safety into active, connected prevention. Demonstrates how IoT, positioning systems, and human-centered design can reduce accidents and save lives.',
     },
     asd: {
-      img: 'https://images.unsplash.com/photo-1617994452722-4145e196248b?w=1800&h=900&fit=crop&auto=format&q=85',
+      img: '/yafi-portfolio/assets/ASD detection/cover.png',
       challenge: 'ASD screening in environments with limited access to specialized diagnostic tools. Existing methods rely on subjective behavioral observation — slow, expensive, and inaccessible.',
       approach: 'Multi-channel EEG headset captures brainwave signals. Signal preprocessing, feature extraction, and deep learning models classify ASD-related brainwave characteristics. Results visualized through a mobile application enabling clear interpretation for clinicians and caregivers without requiring lab equipment.',
       outcome: 'A non-invasive, cost-effective support tool for ASD detection. Demonstrates how neuro-signal processing and AI can bridge the gap between clinical neuroscience and accessible digital health solutions.',
     },
     croptic: {
-      img: 'https://images.unsplash.com/photo-1545292470-391a7b77b8a2?w=1800&h=900&fit=crop&auto=format&q=85',
+      img: '/yafi-portfolio/assets/Croptic/cover.png',
       challenge: 'RSPO compliance in palm oil is declared, not verified. Manual audits are slow, fragmented, and easily gamed. Stakeholders need measurable, transparent, verifiable sustainability data.',
       approach: 'Aerial drone mapping creates complete up-to-date spatial representation of plantation areas. Drone-captured data processed into geospatial layers for precise boundary mapping. AI pipeline: Geo-referencing & orthomosaics → NDVI / spectral index → Tree & infrastructure detection → Age & health classification → Yield & risk prediction.',
       outcome: 'A digital verification platform enabling the palm oil industry to move from manual audits to technology-driven sustainability verification. By combining drone intelligence and digital governance, Croptic supports ecosystem protection while maintaining industrial efficiency.',
@@ -844,7 +749,7 @@ function AboutPage({ navigate }: { navigate: (p: Page) => void }) {
       <div className="about-hero">
         <p className="mono-label h1" style={{ marginBottom: 20 }}>About</p>
         <h1 className="about-greeting">
-          <span className="h2" style={{ display: 'block' }}>Hello! I'm Yafi.</span>
+          <span className="h2" style={{ display: 'block' }}>Hello! I'm Al Yafi.</span>
           <span className="h3" style={{ display: 'block', color: 'var(--accent)' }}>I Build Intelligent Systems.</span>
         </h1>
         <div className="about-intro-grid hsub">
@@ -931,7 +836,8 @@ function AboutPage({ navigate }: { navigate: (p: Page) => void }) {
       <div style={{ padding: '40px 60px 80px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderTop: '1px solid var(--border)' }} ref={r4}>
         <div className={`rv ${o4 ? 'on' : ''}`}>
           <p className="mono-label" style={{ marginBottom: 12 }}>Interested in working together?</p>
-          <p className="body-text" style={{ maxWidth: 420 }}>I'm open to opportunities in AI engineering, medtech, hardware systems, and research collaborations.</p>
+          <p className="body-text" style={{ maxWidth: 420 }}>I'm open to opportunities in AI engineering, medtech hardware, research collaborations, and intelligent systems — anywhere at the intersection of deep technology and real-world impact.
+          </p>
         </div>
         <button className={`rv d2 ${o4 ? 'on' : ''}`} onClick={() => navigate('contact')} style={{
           padding: '14px 32px', background: 'var(--ink)', color: 'var(--bg)',
