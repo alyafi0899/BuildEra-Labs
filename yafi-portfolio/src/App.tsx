@@ -506,7 +506,7 @@ function LudescPage({ navigate }: { navigate: (p: Page) => void }) {
               The application connects patient data with AI-driven clinical insights. It was designed to prioritize the healthcare professional's workflow, ensuring that technology assists rather than complicates.
             </p>
           </div>
-          <div className={`rv d2 ${o8 ? 'on' : ''}`} style={{ background: 'var(--tile-dark)', padding: '60px', textAlign: 'center' }}>
+          <div className={`rv d2 ${o8 ? 'on' : ''}`} style={{ background: '#FFFFFF', padding: '60px', textAlign: 'center' }}>
              <img src="/yafi-portfolio/assets/ludesc/UI_1.png" alt="Telemedicine Results" style={{ maxHeight: 600, margin: '0 auto' }} />
           </div>
         </div>
