@@ -254,7 +254,7 @@ function HomePage({ navigate }: { navigate: (p: Page) => void }) {
         <div className="home-footer-inner">
           <div className="home-footer-name">Al Yafi</div>
           <div className="home-footer-links">
-            <a href="mailto:alyafi@engineer.com">Email</a>
+            <a href="mailto:wenyafi@gmail.com">Email</a>
             <a href="#">LinkedIn</a>
             <a href="#">Github</a>
           </div>
@@ -774,9 +774,9 @@ function ContactPage({ navigate }: { navigate: (p: Page) => void }) {
 
         <div className={`contact-grid rv d5 ${on ? 'on' : ''}`} style={{ marginTop: 80 }}>
           {[
-            { label: 'EMAIL', val: 'alyafi@engineer.com', href: 'mailto:alyafi@engineer.com' },
-            { label: 'LINKEDIN', val: 'linkedin.com/in/alyafi', href: '#' },
-            { label: 'GITHUB', val: 'github.com/alyafi', href: '#' },
+            { label: 'EMAIL', val: 'wenyafi@gmail.com', href: 'mailto:wenyafi@gmail.com' },
+            { label: 'LINKEDIN', val: 'linkedin.com/in/al-yafi/', href: '#' },
+            { label: 'GITHUB', val: 'github.com/alyafi0899', href: '#' },
           ].map(c => (
             <a key={c.label} href={c.href} className="contact-cell">
               <div className="contact-cell-label">{c.label}</div>
