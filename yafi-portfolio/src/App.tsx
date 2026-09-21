@@ -735,41 +735,54 @@ function AboutPage({ navigate }: { navigate: (p: Page) => void }) {
 
   return (
     <div className="page-enter">
-      {/* Huge Hero for About Page */}
-      <div className="about-page-hero">
+      {/* 1. Full Screen Hero */}
+      <section className="about-hero-full">
         <img
           src="/yafi-portfolio/assets/work.png"
           alt="Work Hero"
-          className="about-hero-img"
+          className="about-hero-full-img"
         />
-        <div className="about-hero-overlay" />
-      </div>
+        <div className="about-hero-full-content">
+          <h1 className="about-hero-full-title">Hello! I'm Al Yafi.</h1>
+        </div>
+      </section>
 
-      {/* Greeting hero */}
-      <div className="about-hero">
-        <p className="mono-label h1" style={{ marginBottom: 20 }}>About</p>
-        <h1 className="about-greeting">
-          <span className="h2" style={{ display: 'block' }}>Hello! I'm Al Yafi.</span>
-          <span className="h3" style={{ display: 'block', color: 'var(--accent)' }}>I Build Intelligent Systems.</span>
-        </h1>
-        <div className="about-intro-grid hsub">
-          <div>
-            <p className="body-text" style={{ marginBottom: 20 }}>
-              I'm a computer engineer who thrives at the intersection of AI, healthcare, and creative technology. My background in deep learning for image and signal classification has grown into a passion for building end-to-end solutions — from concept to prototype, from prototype to impact.
-            </p>
-            <p className="body-text" style={{ marginBottom: 20 }}>
-              I've led and contributed to projects ranging from medical device innovation to cross-discipline work across agriculture and daily life. My work has been recognized internationally — one of the 100 World Innovators at Dubai Future Solutions, IYSA Special Award, and ASEAN Digital Awards 2025 winner.
-            </p>
-            <p className="body-text">
-              For me, great work doesn't need to scream. It proves itself in reliability. It earns trust. It shows up when it matters most. That's the kind of engineer I am.
-            </p>
-          </div>
-          <div>
-            <img
-              src="/yafi-portfolio/assets/potrait.png"
-              alt="Al Yafi — portrait"
-              className="about-portrait"
-            />
+      {/* 2. Biography Content */}
+      <div className="cs-body" style={{ background: 'var(--bg)' }}>
+        <div className="about-content-section" ref={r1}>
+          <div className="about-intro-grid">
+            {/* Left: Bio Text */}
+            <div className={`rv d1 ${o1 ? 'on' : ''}`}>
+              <h2 className="about-subtitle-main" style={{ color: 'var(--accent)' }}>
+                I Build Intelligent Systems.
+              </h2>
+              <div className="about-bio-rich-text">
+                <p>
+                  My journey is built on <strong>curiosity, creativity, and the desire to turn ideas into impactful solutions</strong>. This portfolio is not just a showcase, it's a story. <strong>Welcome to my world!</strong>
+                </p>
+                <p>
+                  I'm a computer engineer who thrives at the intersection of <strong>AI, healthcare, and creative technology</strong>. My background in deep learning for image & signal classification has grown into a <strong>passion for building end-to-end solutions</strong>: from concept to prototype, and from prototype to impact.
+                </p>
+                <p>
+                  I've led and contributed to projects ranging from medical device innovation to cross discipline project like agriculture and daily life solutions. My work has been recognized internationally, including <strong>one of the 100 World Innovators at Dubai Future Solutions - Prototype for Humanity, IYSA Special Award, and ASEAN Digital Award 2025 winner</strong>.
+                </p>
+
+                <div className="about-manifesto" style={{ marginTop: 64 }}>
+                  <h3 style={{ fontSize: 'clamp(24px, 3.5vw, 42px)', fontWeight: 800, lineHeight: 1.2 }}>
+                    I love to approach technology as <span style={{ color: 'var(--accent)' }}>a bold, relentless journey</span>. One that <span style={{ color: 'var(--accent)' }}>starts with curiosity</span>, thrives on experimentation, and <span style={{ color: 'var(--accent)' }}>pushes limits to discover new possibilities</span>. I believe in creating solutions that don't just work but inspire, empower, and <span style={{ color: 'var(--accent)' }}>make a difference</span>.
+                  </h3>
+                </div>
+              </div>
+            </div>
+
+            {/* Right: Portrait Pict */}
+            <div className={`rv d2 ${o1 ? 'on' : ''}`}>
+              <img
+                src="/yafi-portfolio/assets/potrait.png"
+                alt="Al Yafi — portrait"
+                className="about-portrait-fixed"
+              />
+            </div>
           </div>
         </div>
       </div>
