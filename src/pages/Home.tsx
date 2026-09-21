@@ -6,6 +6,11 @@ import ludescImg from '../assets/ludesc.png';
 import yovaImg from '../assets/yova.png';
 import prestigiumImg from '../assets/prestigium.png';
 
+import ajLogo from '../assets/be_clients/aj.png';
+import sgLogo from '../assets/be_clients/sg.png';
+import naLogo from '../assets/be_clients/na.png';
+import umLogo from '../assets/be_clients/um.png';
+
 const PX = 'clamp(20px, 5vw, 80px)';
 
 const HERO_SLIDES = [
@@ -89,6 +94,10 @@ const CAPABILITIES = [
 ];
 
 const CLIENTS = [
+  { name: 'Adi Jaya', industry: 'CONSTRUCTION', cat: 'RETAIL', year: '2026', img: ajLogo },
+  { name: 'Surya Agung', industry: 'CONSTRUCTION', cat: 'RETAIL', year: '2026', img: sgLogo },
+  { name: 'Naturiasia', industry: 'E-COMMERCE', cat: 'PLATFORM', year: '2026', img: naLogo },
+  { name: 'UD Oma', industry: 'CONSTRUCTION', cat: 'RETAIL', year: '2026', img: umLogo },
   { name: 'YOVA', industry: 'RENT DRESS MARRIAGE', cat: 'E-COMMERCE', year: '2024', img: yovaImg, link: 'https://yova.solutivolabs.workers.dev/' },
   { name: 'PRESTIGIUM ACADEMIA', industry: 'EDUCATION', cat: 'TRAINING PLATFORM', year: '2025', img: prestigiumImg, link: 'https://prestigeum-academia.solutivolabs.workers.dev/' },
 ];

@@ -897,6 +897,7 @@
       <a href="#fitur" data-nav="fitur">Fitur</a>
       <a href="#screenshot" data-nav="screenshot">Screenshot</a>
       <a href="#download" data-nav="download">Download</a>
+      <a href="#clients" data-nav="clients">Klien</a>
       <a href="#kontak" data-nav="kontak">Kontak &amp; Bantuan</a>
     </nav>
 
@@ -917,6 +918,7 @@
     <a href="#fitur">Fitur</a>
     <a href="#screenshot">Screenshot</a>
     <a href="#download">Download</a>
+    <a href="#clients">Klien</a>
     <a href="#kontak">Kontak &amp; Bantuan</a>
     <a href="#download" class="btn btn-primary btn-block">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v13"/><path d="M6 11l6 6 6-6"/><path d="M4 21h16"/></svg>
@@ -1134,6 +1136,36 @@
   </div>
 </section>
 
+<!-- ============ CLIENTS ============ -->
+<section class="light" id="clients">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Klien Kami</span>
+      <h2>Telah dipercaya oleh <span class="accent">berbagai usaha</span></h2>
+      <p>Membantu digitalisasi operasional toko bahan bangunan di seluruh wilayah.</p>
+    </div>
+
+    <div class="reveal" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 40px; align-items: center; padding: 20px 0;">
+      <div style="text-align: center;">
+        <img src="assets/be_clients/aj.png" alt="Adi Jaya" style="height: clamp(60px, 10vw, 100px); width: auto; filter: grayscale(100%); transition: filter 0.3s;" onmouseover="this.style.filter='grayscale(0%)'" onmouseout="this.style.filter='grayscale(100%)'">
+        <b style="display: block; margin-top: 12px; font-size: 14px;">Adi Jaya</b>
+      </div>
+      <div style="text-align: center;">
+        <img src="assets/be_clients/sg.png" alt="Surya Agung" style="height: clamp(60px, 10vw, 100px); width: auto; filter: grayscale(100%); transition: filter 0.3s;" onmouseover="this.style.filter='grayscale(0%)'" onmouseout="this.style.filter='grayscale(100%)'">
+        <b style="display: block; margin-top: 12px; font-size: 14px;">Surya Agung</b>
+      </div>
+      <div style="text-align: center;">
+        <img src="assets/be_clients/na.png" alt="Naturiasia" style="height: clamp(60px, 10vw, 100px); width: auto; filter: grayscale(100%); transition: filter 0.3s;" onmouseover="this.style.filter='grayscale(0%)'" onmouseout="this.style.filter='grayscale(100%)'">
+        <b style="display: block; margin-top: 12px; font-size: 14px;">Naturiasia</b>
+      </div>
+      <div style="text-align: center;">
+        <img src="assets/be_clients/um.png" alt="UD Oma" style="height: clamp(60px, 10vw, 100px); width: auto; filter: grayscale(100%); transition: filter 0.3s;" onmouseover="this.style.filter='grayscale(0%)'" onmouseout="this.style.filter='grayscale(100%)'">
+        <b style="display: block; margin-top: 12px; font-size: 14px;">UD Oma</b>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ============ KONTAK & BANTUAN ============ -->
 <section class="darksec" id="kontak">
   <div class="wrap">
@@ -1331,7 +1363,7 @@
   mobileNav.querySelectorAll("a").forEach(function(a){ a.addEventListener("click", closeMobileNav); });
 
   const navLinks = document.querySelectorAll("nav.primary a[data-nav]");
-  const sections = ["beranda","fitur","screenshot","download","kontak"].map(function(id){ return document.getElementById(id); }).filter(Boolean);
+  const sections = ["beranda","fitur","screenshot","download","clients","kontak"].map(function(id){ return document.getElementById(id); }).filter(Boolean);
   const spy = new IntersectionObserver(function(entries){
     entries.forEach(function(entry){
       if(entry.isIntersecting){
