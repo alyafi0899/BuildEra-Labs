@@ -743,8 +743,7 @@ function AboutPage({ navigate }: { navigate: (p: Page) => void }) {
           className="about-hero-full-img"
         />
         <div className="about-hero-full-content">
-          <h1 className="about-hero-full-title">Hello!</h1>
-          <h1 className="about-hero-full-title2">I'm  Al Yafi</h1>
+          <h1 className="about-hero-full-title">Hello!, I'm  Al Yafi</h1>
         </div>
       </section>
 
