@@ -338,34 +338,39 @@ export default function App() {
             {/* Download buttons */}
             <div className="flex flex-col sm:flex-row gap-3">
               <a
-                href="https://github.com/alyafi0899/BuildEra-Release/releases/download/v1.2.0/buildera.msixx"
+                href="https://github.com/alyafi0899/BuildEra-Release/releases/download/v1.2.0/buildera.msix"
                 className="group flex items-center gap-3 px-5 py-3 transition-all duration-150"
                 style={{ border: '1px solid #FF6A00', color: '#e7e9ee', fontFamily: 'Barlow Condensed, sans-serif', fontWeight: 600, letterSpacing: '0.04em' }}
                 onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.background = 'rgba(255,106,0,0.1)' }}
                 onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.background = 'transparent' }}
               >
-                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-                  <path d="M8 1v10M3 7l5 5 5-5M1 13h14" stroke="#FF6A00" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FF6A00" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                  <rect x="3" y="4" width="8" height="8" />
+                  <rect x="13" y="4" width="8" height="8" />
+                  <rect x="3" y="14" width="8" height="8" />
+                  <rect x="13" y="14" width="8" height="8" />
                 </svg>
                 <span>
-                  <span className="text-base block">Download MSIX</span>
-                  <span className="text-xs block" style={{ color: '#8a8f98', fontFamily: 'JetBrains Mono, monospace', fontWeight: 400 }}>Installer · ~78 MB · Direkomendasikan</span>
+                  <span className="text-base block">Download Windows</span>
+                  <span className="text-xs block" style={{ color: '#8a8f98', fontFamily: 'JetBrains Mono, monospace', fontWeight: 400 }}>Windows (64-bit)</span>
                 </span>
               </a>
 
               <a
-                href="https://github.com/alyafi0899/BuildEra-Release/releases/download/v1.2.0/BuildEra.zipp"
+                href="https://play.google.com/store/apps/details?id=com.solutivostudio.caltax"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="group flex items-center gap-3 px-5 py-3 transition-all duration-150"
-                style={{ border: '1px solid #2a2d34', color: '#e7e9ee', fontFamily: 'Barlow Condensed, sans-serif', fontWeight: 600, letterSpacing: '0.04em' }}
-                onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.borderColor = '#8a8f98' }}
-                onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.borderColor = '#2a2d34' }}
+                style={{ border: '1px solid #01875f', background: '#01875f15', color: '#e7e9ee', fontFamily: 'Barlow Condensed, sans-serif', fontWeight: 600, letterSpacing: '0.04em' }}
+                onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.background = '#01875f30' }}
+                onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.background = '#01875f15' }}
               >
-                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-                  <path d="M8 1v10M3 7l5 5 5-5M1 13h14" stroke="#8a8f98" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="#3ddc84" aria-hidden="true">
+                  <path d="M3.609 1.814L13.792 12 3.61 22.186a1.503 1.503 0 01-.61-.266c-.23-.178-.391-.43-.391-.787V2.868c0-.357.161-.609.39-.787a1.49 1.49 0 01.61-.267zm11.606 11.611l2.485-2.485c.42-.42.42-1.101 0-1.521l-2.485-2.485-2.83 2.83 2.83 2.661zm-1.414 1.414l-2.83-2.83-8.062 8.062c.28.106.602.083.882-.057l10.01-5.175zm0-9.678L3.782 1.986c-.28-.14-.602-.163-.882-.057l8.062 8.062 2.83-2.83z" />
                 </svg>
                 <span>
-                  <span className="text-base block">Download ZIP</span>
-                  <span className="text-xs block" style={{ color: '#8a8f98', fontFamily: 'JetBrains Mono, monospace', fontWeight: 400 }}>Portable · ~92 MB · Extract &amp; run</span>
+                  <span className="text-base block">Google Play</span>
+                  <span className="text-xs block" style={{ color: '#8a8f98', fontFamily: 'JetBrains Mono, monospace', fontWeight: 400 }}>Android App</span>
                 </span>
               </a>
             </div>
@@ -513,62 +518,66 @@ export default function App() {
       {/* DOWNLOAD TABLE */}
       <section id="download" className="max-w-7xl mx-auto px-6 py-24">
         <div className="reveal mb-10">
-          <p className="text-xs uppercase mb-3" style={{ color: '#FF6A00', fontFamily: 'JetBrains Mono, monospace', letterSpacing: '0.12em' }}>Pilih Paket</p>
+          <p className="text-xs uppercase mb-3" style={{ color: '#FF6A00', fontFamily: 'JetBrains Mono, monospace', letterSpacing: '0.12em' }}>Pilih Platform</p>
           <h2 style={{ fontFamily: 'Barlow Condensed, sans-serif', fontWeight: 800, fontSize: 'clamp(2.2rem, 5vw, 4rem)', letterSpacing: '-0.01em' }}>
-            Perbandingan<br />Installer
+            Dapatkan BuildEra<br />Sekarang
           </h2>
         </div>
 
-        <div className="reveal overflow-x-auto">
-          <table className="w-full text-sm" style={{ borderCollapse: 'collapse', fontFamily: 'JetBrains Mono, monospace' }}>
-            <thead>
-              <tr style={{ borderBottom: '1px solid #FF6A00' }}>
-                <th className="py-4 pr-6 text-left text-xs uppercase tracking-widest" style={{ color: '#8a8f98' }}>Spesifikasi</th>
-                <th className="py-4 pr-6 text-left text-xs uppercase tracking-widest" style={{ color: '#e7e9ee' }}>MSIX Installer</th>
-                <th className="py-4 text-left text-xs uppercase tracking-widest" style={{ color: '#8a8f98' }}>Portable ZIP</th>
-              </tr>
-            </thead>
-            <tbody>
-              {[
-                ['Metode', 'Instalasi standar Windows', 'Extract & run BuildEra.exe'],
-                ['Perlu hak admin', 'Ya', 'Tidak'],
-                ['Auto-update', 'Ya', 'Tidak'],
-                ['Ukuran', '~78 MB', '~92 MB'],
-              ].map(([spec, msix, zip]) => (
-                <tr key={spec} style={{ borderBottom: '1px solid #1e2128' }}>
-                  <td className="py-4 pr-6" style={{ color: '#8a8f98' }}>{spec}</td>
-                  <td className="py-4 pr-6" style={{ color: '#e7e9ee' }}>{msix}</td>
-                  <td className="py-4" style={{ color: '#8a8f98' }}>{zip}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+        <div className="reveal grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
+          <div className="p-6 rounded" style={{ background: '#16181c', border: '1px solid #2a2d34' }}>
+            <div className="w-10 h-10 rounded flex items-center justify-center mb-4" style={{ background: 'rgba(255,106,0,0.12)', color: '#FF6A00' }}>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <rect x="3" y="4" width="8" height="8" />
+                <rect x="13" y="4" width="8" height="8" />
+                <rect x="3" y="14" width="8" height="8" />
+                <rect x="13" y="14" width="8" height="8" />
+              </svg>
+            </div>
+            <h3 className="text-xl font-bold mb-2" style={{ fontFamily: 'Barlow Condensed, sans-serif', color: '#e7e9ee' }}>Windows Version</h3>
+            <p className="text-sm mb-6" style={{ color: '#8a8f98' }}>Aplikasi kasir &amp; manajemen toko bahan bangunan untuk PC / Laptop Windows 10/11 (64-bit).</p>
+            <a
+              href="https://github.com/alyafi0899/BuildEra-Release/releases/download/v1.2.0/buildera.msix"
+              className="inline-flex items-center gap-3 px-6 py-3 text-sm font-bold uppercase tracking-wider transition-all duration-150"
+              style={{ background: '#FF6A00', color: '#0a0a0c', fontFamily: 'Barlow Condensed, sans-serif', letterSpacing: '0.08em' }}
+              onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.background = '#ff8533' }}
+              onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.background = '#FF6A00' }}
+            >
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                <path d="M8 1v10M3 7l5 5 5-5M1 13h14" stroke="#0a0a0c" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+              Download Windows
+            </a>
+          </div>
+
+          <div className="p-6 rounded" style={{ background: '#16181c', border: '1px solid #2a2d34' }}>
+            <div className="w-10 h-10 rounded flex items-center justify-center mb-4" style={{ background: '#01875f20', color: '#3ddc84' }}>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M3.609 1.814L13.792 12 3.61 22.186a1.503 1.503 0 01-.61-.266c-.23-.178-.391-.43-.391-.787V2.868c0-.357.161-.609.39-.787a1.49 1.49 0 01.61-.267zm11.606 11.611l2.485-2.485c.42-.42.42-1.101 0-1.521l-2.485-2.485-2.83 2.83 2.83 2.661zm-1.414 1.414l-2.83-2.83-8.062 8.062c.28.106.602.083.882-.057l10.01-5.175zm0-9.678L3.782 1.986c-.28-.14-.602-.163-.882-.057l8.062 8.062 2.83-2.83z" />
+              </svg>
+            </div>
+            <h3 className="text-xl font-bold mb-2" style={{ fontFamily: 'Barlow Condensed, sans-serif', color: '#e7e9ee' }}>Google Play Store</h3>
+            <p className="text-sm mb-6" style={{ color: '#8a8f98' }}>Unduh &amp; pasang aplikasi BuildEra langsung dari Google Play Store untuk HP &amp; Tablet Android.</p>
+            <a
+              href="https://play.google.com/store/apps/details?id=com.solutivostudio.caltax"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-3 px-6 py-3 text-sm font-bold uppercase tracking-wider transition-all duration-150"
+              style={{ background: '#01875f', color: '#ffffff', fontFamily: 'Barlow Condensed, sans-serif', letterSpacing: '0.08em' }}
+              onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.background = '#019e70' }}
+              onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.background = '#01875f' }}
+            >
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M3.609 1.814L13.792 12 3.61 22.186a1.503 1.503 0 01-.61-.266c-.23-.178-.391-.43-.391-.787V2.868c0-.357.161-.609.39-.787a1.49 1.49 0 01.61-.267zm11.606 11.611l2.485-2.485c.42-.42.42-1.101 0-1.521l-2.485-2.485-2.83 2.83 2.83 2.661zm-1.414 1.414l-2.83-2.83-8.062 8.062c.28.106.602.083.882-.057l10.01-5.175zm0-9.678L3.782 1.986c-.28-.14-.602-.163-.882-.057l8.062 8.062 2.83-2.83z" />
+              </svg>
+              Buka Google Play
+            </a>
+          </div>
         </div>
 
-        <div className="reveal mt-10 flex flex-col sm:flex-row gap-4">
+        <div className="reveal flex justify-start">
           <a
-            href="https://github.com/alyafi0899/BuildEra-Release/releases/download/v1.2.0/buildera.msixx"
-            className="inline-flex items-center justify-center gap-3 px-8 py-4 text-sm font-bold uppercase tracking-wider transition-all duration-150"
-            style={{ background: '#FF6A00', color: '#0a0a0c', fontFamily: 'Barlow Condensed, sans-serif', letterSpacing: '0.08em' }}
-            onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.background = '#ff8533' }}
-            onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.background = '#FF6A00' }}
-          >
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-              <path d="M8 1v10M3 7l5 5 5-5M1 13h14" stroke="#0a0a0c" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
-            Download MSIX — ~78 MB
-          </a>
-          <a
-            href="https://github.com/alyafi0899/BuildEra-Release/releases/download/v1.2.0/BuildEra.zipp"
-            className="inline-flex items-center justify-center gap-3 px-8 py-4 text-sm font-bold uppercase tracking-wider transition-all duration-150"
-            style={{ border: '1px solid #2a2d34', color: '#e7e9ee', fontFamily: 'Barlow Condensed, sans-serif', letterSpacing: '0.08em' }}
-            onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.borderColor = '#8a8f98' }}
-            onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.borderColor = '#2a2d34' }}
-          >
-            Download ZIP — ~92 MB
-          </a>
-          <a
-            href="https://github.com/alyafi0899/BuildEra-Release/releases/download/v1.2.0/Manual.Book.BuildEra.V0.1.pdff"
+            href="https://github.com/alyafi0899/BuildEra-Release/releases/download/v1.2.0/Manual.Book.BuildEra.V0.1.pdf"
             className="inline-flex items-center justify-center gap-3 px-8 py-4 text-sm font-bold uppercase tracking-wider transition-all duration-150"
             style={{ border: '1px solid #2a2d34', color: '#8a8f98', fontFamily: 'Barlow Condensed, sans-serif', letterSpacing: '0.08em' }}
             onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.color = '#e7e9ee'; (e.currentTarget as HTMLElement).style.borderColor = '#8a8f98' }}
