@@ -344,12 +344,7 @@ export default function App() {
                 onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.background = 'rgba(255,106,0,0.1)' }}
                 onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.background = 'transparent' }}
               >
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FF6A00" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                  <rect x="3" y="4" width="8" height="8" />
-                  <rect x="13" y="4" width="8" height="8" />
-                  <rect x="3" y="14" width="8" height="8" />
-                  <rect x="13" y="14" width="8" height="8" />
-                </svg>
+                <img src="assets/windows.jpg" alt="Windows" className="w-5 h-5 rounded object-cover flex-shrink-0" />
                 <span>
                   <span className="text-base block">Download Windows</span>
                   <span className="text-xs block" style={{ color: '#8a8f98', fontFamily: 'JetBrains Mono, monospace', fontWeight: 400 }}>Windows (64-bit)</span>
@@ -365,9 +360,7 @@ export default function App() {
                 onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.background = '#01875f30' }}
                 onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.background = '#01875f15' }}
               >
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="#3ddc84" aria-hidden="true">
-                  <path d="M3.609 1.814L13.792 12 3.61 22.186a1.503 1.503 0 01-.61-.266c-.23-.178-.391-.43-.391-.787V2.868c0-.357.161-.609.39-.787a1.49 1.49 0 01.61-.267zm11.606 11.611l2.485-2.485c.42-.42.42-1.101 0-1.521l-2.485-2.485-2.83 2.83 2.83 2.661zm-1.414 1.414l-2.83-2.83-8.062 8.062c.28.106.602.083.882-.057l10.01-5.175zm0-9.678L3.782 1.986c-.28-.14-.602-.163-.882-.057l8.062 8.062 2.83-2.83z" />
-                </svg>
+                <img src="assets/playstore.png" alt="Google Play" className="w-5 h-5 rounded object-cover flex-shrink-0" />
                 <span>
                   <span className="text-base block">Google Play</span>
                   <span className="text-xs block" style={{ color: '#8a8f98', fontFamily: 'JetBrains Mono, monospace', fontWeight: 400 }}>Android App</span>
@@ -526,13 +519,8 @@ export default function App() {
 
         <div className="reveal grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
           <div className="p-6 rounded" style={{ background: '#16181c', border: '1px solid #2a2d34' }}>
-            <div className="w-10 h-10 rounded flex items-center justify-center mb-4" style={{ background: 'rgba(255,106,0,0.12)', color: '#FF6A00' }}>
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <rect x="3" y="4" width="8" height="8" />
-                <rect x="13" y="4" width="8" height="8" />
-                <rect x="3" y="14" width="8" height="8" />
-                <rect x="13" y="14" width="8" height="8" />
-              </svg>
+            <div className="w-10 h-10 rounded-lg overflow-hidden flex items-center justify-center mb-4">
+              <img src="assets/windows.jpg" alt="Windows Logo" className="w-full h-full object-cover rounded-lg" />
             </div>
             <h3 className="text-xl font-bold mb-2" style={{ fontFamily: 'Barlow Condensed, sans-serif', color: '#e7e9ee' }}>Windows Version</h3>
             <p className="text-sm mb-6" style={{ color: '#8a8f98' }}>Aplikasi kasir &amp; manajemen toko bahan bangunan untuk PC / Laptop Windows 10/11 (64-bit).</p>
@@ -543,18 +531,14 @@ export default function App() {
               onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.background = '#ff8533' }}
               onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.background = '#FF6A00' }}
             >
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-                <path d="M8 1v10M3 7l5 5 5-5M1 13h14" stroke="#0a0a0c" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
+              <img src="assets/windows.jpg" alt="" className="w-4 h-4 rounded object-cover flex-shrink-0" />
               Download Windows
             </a>
           </div>
 
           <div className="p-6 rounded" style={{ background: '#16181c', border: '1px solid #2a2d34' }}>
-            <div className="w-10 h-10 rounded flex items-center justify-center mb-4" style={{ background: '#01875f20', color: '#3ddc84' }}>
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M3.609 1.814L13.792 12 3.61 22.186a1.503 1.503 0 01-.61-.266c-.23-.178-.391-.43-.391-.787V2.868c0-.357.161-.609.39-.787a1.49 1.49 0 01.61-.267zm11.606 11.611l2.485-2.485c.42-.42.42-1.101 0-1.521l-2.485-2.485-2.83 2.83 2.83 2.661zm-1.414 1.414l-2.83-2.83-8.062 8.062c.28.106.602.083.882-.057l10.01-5.175zm0-9.678L3.782 1.986c-.28-.14-.602-.163-.882-.057l8.062 8.062 2.83-2.83z" />
-              </svg>
+            <div className="w-10 h-10 rounded-lg overflow-hidden flex items-center justify-center mb-4">
+              <img src="assets/playstore.png" alt="Google Play Logo" className="w-full h-full object-cover rounded-lg" />
             </div>
             <h3 className="text-xl font-bold mb-2" style={{ fontFamily: 'Barlow Condensed, sans-serif', color: '#e7e9ee' }}>Google Play Store</h3>
             <p className="text-sm mb-6" style={{ color: '#8a8f98' }}>Unduh &amp; pasang aplikasi BuildEra langsung dari Google Play Store untuk HP &amp; Tablet Android.</p>
@@ -567,7 +551,11 @@ export default function App() {
               onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.background = '#019e70' }}
               onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.background = '#01875f' }}
             >
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <img src="assets/playstore.png" alt="" className="w-4 h-4 rounded object-cover flex-shrink-0" />
+              Buka Google Play
+            </a>
+          </div>
+        </div>
                 <path d="M3.609 1.814L13.792 12 3.61 22.186a1.503 1.503 0 01-.61-.266c-.23-.178-.391-.43-.391-.787V2.868c0-.357.161-.609.39-.787a1.49 1.49 0 01.61-.267zm11.606 11.611l2.485-2.485c.42-.42.42-1.101 0-1.521l-2.485-2.485-2.83 2.83 2.83 2.661zm-1.414 1.414l-2.83-2.83-8.062 8.062c.28.106.602.083.882-.057l10.01-5.175zm0-9.678L3.782 1.986c-.28-.14-.602-.163-.882-.057l8.062 8.062 2.83-2.83z" />
               </svg>
               Buka Google Play
