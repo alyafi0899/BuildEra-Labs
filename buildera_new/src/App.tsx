@@ -248,7 +248,7 @@ export default function App() {
 
           {/* Nav links */}
           <div className="hidden md:flex items-center gap-6">
-            {['Beranda', 'Fitur', 'Screenshots', 'Download', 'Kontak', 'Bantuan'].map((item) => (
+            {['Beranda', 'Fitur', 'Screenshots', 'Harga', 'Download', 'Kontak', 'Bantuan'].map((item) => (
               <a
                 key={item}
                 href={`#${item.toLowerCase()}`}
@@ -266,23 +266,24 @@ export default function App() {
           <div className="flex items-center gap-3">
             <div className="hidden sm:flex items-center gap-2 text-xs" style={{ fontFamily: 'JetBrains Mono, monospace', color: '#8a8f98' }}>
               <span className="inline-block w-1.5 h-1.5 rounded-full" style={{ background: '#22c55e' }} />
-              v1.2.0 — Available Now
+              v1.2.1 — Available Now
             </div>
             <a
-              href="https://wa.me/971582517092"
+              href="https://play.google.com/store/apps/details?id=com.solutivostudio.caltax"
               target="_blank"
               rel="noopener noreferrer"
-              className="px-4 py-2 text-xs font-semibold uppercase tracking-wider transition-all duration-150"
+              className="px-4 py-2 text-xs font-semibold uppercase tracking-wider transition-all duration-150 flex items-center gap-2"
               style={{
-                background: '#FF6A00',
-                color: '#0a0a0c',
+                background: '#01875f',
+                color: '#ffffff',
                 fontFamily: 'Barlow Condensed, sans-serif',
                 letterSpacing: '0.08em',
               }}
-              onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.background = '#ff8533' }}
-              onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.background = '#FF6A00' }}
+              onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.background = '#019e70' }}
+              onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.background = '#01875f' }}
             >
-              Hubungi Kami
+              <img src="assets/playstore.png" alt="" className="w-4 h-4 rounded object-cover" />
+              Download App
             </a>
           </div>
         </div>
@@ -311,7 +312,7 @@ export default function App() {
               className="text-xs uppercase mb-4"
               style={{ color: '#FF6A00', fontFamily: 'JetBrains Mono, monospace', letterSpacing: '0.12em' }}
             >
-              Versi Terbaru v1.2.0
+              Versi Terbaru v1.2.1
             </p>
 
             {/* Headline */}
@@ -335,35 +336,21 @@ export default function App() {
               Aplikasi kasir dan manajemen toko bahan bangunan yang cepat, mudah, dan lengkap.
             </p>
 
-            {/* Download buttons */}
+            {/* Download button */}
             <div className="flex flex-col sm:flex-row gap-3">
-              <a
-                href="https://github.com/alyafi0899/BuildEra-Release/releases/download/v1.2.0/buildera.msix"
-                className="group flex items-center gap-3 px-5 py-3 transition-all duration-150"
-                style={{ border: '1px solid #FF6A00', color: '#e7e9ee', fontFamily: 'Barlow Condensed, sans-serif', fontWeight: 600, letterSpacing: '0.04em' }}
-                onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.background = 'rgba(255,106,0,0.1)' }}
-                onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.background = 'transparent' }}
-              >
-                <img src="assets/windows.jpg" alt="Windows" className="w-5 h-5 rounded object-cover flex-shrink-0" />
-                <span>
-                  <span className="text-base block">Download Windows</span>
-                  <span className="text-xs block" style={{ color: '#8a8f98', fontFamily: 'JetBrains Mono, monospace', fontWeight: 400 }}>Windows (64-bit)</span>
-                </span>
-              </a>
-
               <a
                 href="https://play.google.com/store/apps/details?id=com.solutivostudio.caltax"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group flex items-center gap-3 px-5 py-3 transition-all duration-150"
-                style={{ border: '1px solid #01875f', background: '#01875f15', color: '#e7e9ee', fontFamily: 'Barlow Condensed, sans-serif', fontWeight: 600, letterSpacing: '0.04em' }}
-                onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.background = '#01875f30' }}
-                onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.background = '#01875f15' }}
+                className="group flex items-center gap-3 px-6 py-4 transition-all duration-150"
+                style={{ border: '1px solid #01875f', background: '#01875f', color: '#ffffff', fontFamily: 'Barlow Condensed, sans-serif', fontWeight: 600, letterSpacing: '0.04em' }}
+                onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.background = '#019e70' }}
+                onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.background = '#01875f' }}
               >
-                <img src="assets/playstore.png" alt="Google Play" className="w-5 h-5 rounded object-cover flex-shrink-0" />
+                <img src="assets/playstore.png" alt="Google Play" className="w-6 h-6 rounded object-cover flex-shrink-0" />
                 <span>
-                  <span className="text-base block">Google Play</span>
-                  <span className="text-xs block" style={{ color: '#8a8f98', fontFamily: 'JetBrains Mono, monospace', fontWeight: 400 }}>Android App</span>
+                  <span className="text-lg block">Google Play Store</span>
+                  <span className="text-xs block" style={{ color: '#d0f2e5', fontFamily: 'JetBrains Mono, monospace', fontWeight: 400 }}>Tersedia untuk Android</span>
                 </span>
               </a>
             </div>
@@ -378,7 +365,7 @@ export default function App() {
           <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
             <path d="M2 6l3 3 5-5" stroke="#22c55e" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
-          Aman &amp; Terverifikasi — file dicek sebelum dirilis
+          Aman &amp; Terverifikasi — terdaftar di Google Play Store
         </div>
 
         {/* Scroll cue */}
@@ -508,62 +495,129 @@ export default function App() {
 
       <HazardDivider />
 
-      {/* DOWNLOAD TABLE */}
-      <section id="download" className="max-w-7xl mx-auto px-6 py-24">
-        <div className="reveal mb-10">
-          <p className="text-xs uppercase mb-3" style={{ color: '#FF6A00', fontFamily: 'JetBrains Mono, monospace', letterSpacing: '0.12em' }}>Pilih Platform</p>
+      {/* PRICING / SUBSCRIPTION SECTION */}
+      <section id="harga" className="max-w-7xl mx-auto px-6 py-24">
+        <div className="reveal mb-12 text-center max-w-2xl mx-auto">
+          <p className="text-xs uppercase mb-3" style={{ color: '#FF6A00', fontFamily: 'JetBrains Mono, monospace', letterSpacing: '0.12em' }}>Pilihan Paket</p>
           <h2 style={{ fontFamily: 'Barlow Condensed, sans-serif', fontWeight: 800, fontSize: 'clamp(2.2rem, 5vw, 4rem)', letterSpacing: '-0.01em' }}>
-            Dapatkan BuildEra<br />Sekarang
+            Paket Subscription BuildEra
           </h2>
+          <p className="text-sm mt-2" style={{ color: '#8a8f98' }}>Pilih paket yang paling sesuai dengan kebutuhan operasional toko Anda.</p>
         </div>
 
-        <div className="reveal grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
-          <div className="p-6 rounded" style={{ background: '#16181c', border: '1px solid #2a2d34' }}>
-            <div className="w-10 h-10 rounded-lg overflow-hidden flex items-center justify-center mb-4">
-              <img src="assets/windows.jpg" alt="Windows Logo" className="w-full h-full object-cover rounded-lg" />
+        <div className="reveal grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+          {/* Free Plan */}
+          <div className="p-8 rounded-xl flex flex-col justify-between" style={{ background: '#16181c', border: '1px solid #2a2d34' }}>
+            <div>
+              <span className="px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider" style={{ background: '#2a2d34', color: '#8a8f98', fontFamily: 'JetBrains Mono, monospace' }}>
+                BuildEra Free
+              </span>
+              <div className="my-6">
+                <span className="text-4xl font-extrabold" style={{ fontFamily: 'Barlow Condensed, sans-serif', color: '#e7e9ee' }}>Rp0</span>
+              </div>
+              <p className="text-sm mb-6" style={{ color: '#8a8f98' }}>Untuk mencoba dan menjalankan operasional dasar toko.</p>
+              <ul className="space-y-3 text-sm mb-8" style={{ color: '#c7cbd6', fontFamily: 'Inter, sans-serif' }}>
+                <li className="flex items-center gap-3"><span style={{ color: '#22c55e', fontWeight: 'bold' }}>✓</span> Manajemen produk (Terbatas)</li>
+                <li className="flex items-center gap-3"><span style={{ color: '#22c55e', fontWeight: 'bold' }}>✓</span> Kasir &amp; transaksi penjualan (Maks. 3 transaksi)</li>
+                <li className="flex items-center gap-3 opacity-50"><span style={{ color: '#8a8f98' }}>✕</span> Import produk Excel (Tidak tersedia)</li>
+                <li className="flex items-center gap-3 opacity-50"><span style={{ color: '#8a8f98' }}>✕</span> Analitik bisnis (Tidak tersedia)</li>
+                <li className="flex items-center gap-3 opacity-50"><span style={{ color: '#8a8f98' }}>✕</span> Piutang pelanggan (Tidak tersedia)</li>
+                <li className="flex items-center gap-3 opacity-50"><span style={{ color: '#8a8f98' }}>✕</span> Pembelian &amp; tagihan (Tidak tersedia)</li>
+              </ul>
             </div>
-            <h3 className="text-xl font-bold mb-2" style={{ fontFamily: 'Barlow Condensed, sans-serif', color: '#e7e9ee' }}>Windows Version</h3>
-            <p className="text-sm mb-6" style={{ color: '#8a8f98' }}>Aplikasi kasir &amp; manajemen toko bahan bangunan untuk PC / Laptop Windows 10/11 (64-bit).</p>
-            <a
-              href="https://github.com/alyafi0899/BuildEra-Release/releases/download/v1.2.0/buildera.msix"
-              className="inline-flex items-center gap-3 px-6 py-3 text-sm font-bold uppercase tracking-wider transition-all duration-150"
-              style={{ background: '#FF6A00', color: '#0a0a0c', fontFamily: 'Barlow Condensed, sans-serif', letterSpacing: '0.08em' }}
-              onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.background = '#ff8533' }}
-              onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.background = '#FF6A00' }}
-            >
-              <img src="assets/windows.jpg" alt="" className="w-4 h-4 rounded object-cover flex-shrink-0" />
-              Download Windows
-            </a>
-          </div>
-
-          <div className="p-6 rounded" style={{ background: '#16181c', border: '1px solid #2a2d34' }}>
-            <div className="w-10 h-10 rounded-lg overflow-hidden flex items-center justify-center mb-4">
-              <img src="assets/playstore.png" alt="Google Play Logo" className="w-full h-full object-cover rounded-lg" />
-            </div>
-            <h3 className="text-xl font-bold mb-2" style={{ fontFamily: 'Barlow Condensed, sans-serif', color: '#e7e9ee' }}>Google Play Store</h3>
-            <p className="text-sm mb-6" style={{ color: '#8a8f98' }}>Unduh &amp; pasang aplikasi BuildEra langsung dari Google Play Store untuk HP &amp; Tablet Android.</p>
             <a
               href="https://play.google.com/store/apps/details?id=com.solutivostudio.caltax"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-3 px-6 py-3 text-sm font-bold uppercase tracking-wider transition-all duration-150"
-              style={{ background: '#01875f', color: '#ffffff', fontFamily: 'Barlow Condensed, sans-serif', letterSpacing: '0.08em' }}
-              onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.background = '#019e70' }}
-              onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.background = '#01875f' }}
+              className="w-full py-3 text-center text-sm font-bold uppercase tracking-wider rounded transition-all duration-150"
+              style={{ border: '1px solid #2a2d34', color: '#e7e9ee', fontFamily: 'Barlow Condensed, sans-serif' }}
+              onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.borderColor = '#8a8f98' }}
+              onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.borderColor = '#2a2d34' }}
             >
-              <img src="assets/playstore.png" alt="" className="w-4 h-4 rounded object-cover flex-shrink-0" />
-              Buka Google Play
+              Coba Gratis di Google Play
+            </a>
+          </div>
+
+          {/* Pro Subscription */}
+          <div className="p-8 rounded-xl flex flex-col justify-between relative" style={{ background: '#111318', border: '2px solid #FF6A00', boxShadow: '0 20px 40px -15px rgba(255,106,0,0.25)' }}>
+            <div>
+              <div className="flex justify-between items-center mb-6">
+                <span className="px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider" style={{ background: '#FF6A00', color: '#0a0a0c', fontFamily: 'JetBrains Mono, monospace' }}>
+                  BuildEra Pro
+                </span>
+                <span className="px-2.5 py-0.5 rounded-full text-xs font-bold uppercase" style={{ background: 'rgba(255,106,0,0.15)', color: '#ff8533', border: '1px solid rgba(255,106,0,0.3)', fontFamily: 'JetBrains Mono, monospace' }}>
+                  Full Features
+                </span>
+              </div>
+              <div className="mb-4">
+                <span className="text-4xl font-extrabold" style={{ fontFamily: 'Barlow Condensed, sans-serif', color: '#e7e9ee' }}>Rp99.000</span>
+                <span className="text-sm ml-2" style={{ color: '#8a8f98' }}>/ bulan</span>
+                <div className="text-sm mt-1" style={{ color: '#ff8533', fontFamily: 'JetBrains Mono, monospace' }}>
+                  <strong>Rp999.000</strong> <span style={{ color: '#8a8f98' }}>/ tahun (Hemat 15,9% ~ Rp189.000)</span>
+                </div>
+                <small className="block text-xs text-gray-500 mt-1">*Belum termasuk pajak yang berlaku</small>
+              </div>
+              <p className="text-sm mb-6" style={{ color: '#8a8f98' }}>Seluruh fitur bisnis untuk operasional toko tanpa batasan.</p>
+              <ul className="space-y-3 text-sm mb-8" style={{ color: '#e7e9ee', fontFamily: 'Inter, sans-serif' }}>
+                <li className="flex items-center gap-3"><span style={{ color: '#FF6A00', fontWeight: 'bold' }}>✓</span> Manajemen produk tanpa batas</li>
+                <li className="flex items-center gap-3"><span style={{ color: '#FF6A00', fontWeight: 'bold' }}>✓</span> Kasir &amp; transaksi penjualan lengkap (Unlimited)</li>
+                <li className="flex items-center gap-3"><span style={{ color: '#FF6A00', fontWeight: 'bold' }}>✓</span> Fitur pembelian &amp; transaksi pengadaan</li>
+                <li className="flex items-center gap-3"><span style={{ color: '#FF6A00', fontWeight: 'bold' }}>✓</span> Manajemen tagihan supplier &amp; ekspedisi</li>
+                <li className="flex items-center gap-3"><span style={{ color: '#FF6A00', fontWeight: 'bold' }}>✓</span> Manajemen piutang pelanggan</li>
+                <li className="flex items-center gap-3"><span style={{ color: '#FF6A00', fontWeight: 'bold' }}>✓</span> Analitik &amp; laporan bisnis real-time</li>
+                <li className="flex items-center gap-3"><span style={{ color: '#FF6A00', fontWeight: 'bold' }}>✓</span> Import data produk melalui Excel</li>
+                <li className="flex items-center gap-3"><span style={{ color: '#FF6A00', fontWeight: 'bold' }}>✓</span> Akses penuh ke seluruh fitur Pro</li>
+              </ul>
+            </div>
+            <a
+              href="https://play.google.com/store/apps/details?id=com.solutivostudio.caltax"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full py-3 text-center text-sm font-bold uppercase tracking-wider rounded transition-all duration-150"
+              style={{ background: '#FF6A00', color: '#0a0a0c', fontFamily: 'Barlow Condensed, sans-serif' }}
+              onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.background = '#ff8533' }}
+              onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.background = '#FF6A00' }}
+            >
+              Langganan Pro di Google Play
             </a>
           </div>
         </div>
-                <path d="M3.609 1.814L13.792 12 3.61 22.186a1.503 1.503 0 01-.61-.266c-.23-.178-.391-.43-.391-.787V2.868c0-.357.161-.609.39-.787a1.49 1.49 0 01.61-.267zm11.606 11.611l2.485-2.485c.42-.42.42-1.101 0-1.521l-2.485-2.485-2.83 2.83 2.83 2.661zm-1.414 1.414l-2.83-2.83-8.062 8.062c.28.106.602.083.882-.057l10.01-5.175zm0-9.678L3.782 1.986c-.28-.14-.602-.163-.882-.057l8.062 8.062 2.83-2.83z" />
-              </svg>
-              Buka Google Play
-            </a>
-          </div>
+      </section>
+
+      <HazardDivider />
+
+      {/* DOWNLOAD SECTION */}
+      <section id="download" className="max-w-7xl mx-auto px-6 py-24">
+        <div className="reveal mb-10">
+          <p className="text-xs uppercase mb-3" style={{ color: '#FF6A00', fontFamily: 'JetBrains Mono, monospace', letterSpacing: '0.12em' }}>Google Play</p>
+          <h2 style={{ fontFamily: 'Barlow Condensed, sans-serif', fontWeight: 800, fontSize: 'clamp(2.2rem, 5vw, 4rem)', letterSpacing: '-0.01em' }}>
+            Unduh BuildEra Sekarang
+          </h2>
         </div>
 
-        <div className="reveal flex justify-start">
+        <div className="reveal p-8 rounded-xl mb-8 flex flex-col md:flex-row items-center justify-between gap-6" style={{ background: '#16181c', border: '1px solid #2a2d34' }}>
+          <div className="flex items-center gap-4">
+            <img src="assets/playstore.png" alt="Google Play Logo" className="w-14 h-14 rounded-xl object-cover flex-shrink-0" />
+            <div>
+              <h3 className="text-xl font-bold" style={{ fontFamily: 'Barlow Condensed, sans-serif', color: '#e7e9ee' }}>Google Play Store (Android)</h3>
+              <p className="text-sm" style={{ color: '#8a8f98' }}>Unduh &amp; pasang langsung ke HP / Tablet Android Anda.</p>
+            </div>
+          </div>
+          <a
+            href="https://play.google.com/store/apps/details?id=com.solutivostudio.caltax"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-3 px-8 py-4 text-sm font-bold uppercase tracking-wider rounded transition-all duration-150 flex-shrink-0"
+            style={{ background: '#01875f', color: '#ffffff', fontFamily: 'Barlow Condensed, sans-serif', letterSpacing: '0.08em' }}
+            onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.background = '#019e70' }}
+            onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.background = '#01875f' }}
+          >
+            <img src="assets/playstore.png" alt="" className="w-5 h-5 rounded object-cover flex-shrink-0" />
+            Buka Google Play Store
+          </a>
+        </div>
+
+        <div className="reveal flex flex-wrap gap-4">
           <a
             href="https://github.com/alyafi0899/BuildEra-Release/releases/download/v1.2.0/Manual.Book.BuildEra.V0.1.pdf"
             className="inline-flex items-center justify-center gap-3 px-8 py-4 text-sm font-bold uppercase tracking-wider transition-all duration-150"
@@ -572,6 +626,15 @@ export default function App() {
             onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.color = '#8a8f98'; (e.currentTarget as HTMLElement).style.borderColor = '#2a2d34' }}
           >
             Manual Book PDF
+          </a>
+          <a
+            href="https://github.com/alyafi0899/BuildEra-Release/releases/download/v1.2.0/Format_import_Product_list_BuildEra.xlsx"
+            className="inline-flex items-center justify-center gap-3 px-8 py-4 text-sm font-bold uppercase tracking-wider transition-all duration-150"
+            style={{ border: '1px solid #2a2d34', color: '#8a8f98', fontFamily: 'Barlow Condensed, sans-serif', letterSpacing: '0.08em' }}
+            onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.color = '#e7e9ee'; (e.currentTarget as HTMLElement).style.borderColor = '#8a8f98' }}
+            onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.color = '#8a8f98'; (e.currentTarget as HTMLElement).style.borderColor = '#2a2d34' }}
+          >
+            Template Import Excel
           </a>
         </div>
       </section>
@@ -582,11 +645,11 @@ export default function App() {
           <div className="flex flex-wrap items-center gap-x-2 gap-y-1">
             <span className="text-xs uppercase tracking-widest mr-2" style={{ fontFamily: 'JetBrains Mono, monospace', color: '#FF6A00', fontWeight: 500 }}>SYS REQ</span>
             {[
-              'OS: Windows 10/11 (64-bit)',
-              'Processor: Intel/AMD 64-bit',
-              'RAM: Min 4 GB',
-              'Storage: Min 1 GB',
-              'Internet: Diperlukan untuk aktivasi & sinkronisasi',
+              'OS: Android 7.0 (Nougat) atau lebih baru',
+              'Perangkat: HP / Tablet Android',
+              'RAM: Min 2 GB',
+              'Storage: Min 500 MB',
+              'Koneksi: Diperlukan untuk sinkronisasi cloud',
             ].map((req, i, arr) => (
               <span key={req} className="text-xs" style={{ fontFamily: 'JetBrains Mono, monospace', color: '#3a3d44' }}>
                 {req}{i < arr.length - 1 && <span style={{ color: '#8a8f98' }}> · </span>}
@@ -672,7 +735,7 @@ export default function App() {
             </p>
           </div>
           <div className="flex gap-4 text-xs" style={{ fontFamily: 'JetBrains Mono, monospace', color: '#8a8f98' }}>
-            <a href="#" className="transition-colors duration-150" onMouseEnter={(e) => { (e.target as HTMLElement).style.color = '#e7e9ee' }} onMouseLeave={(e) => { (e.target as HTMLElement).style.color = '#8a8f98' }}>Kebijakan Privasi</a>
+            <a href="/buildera/privacy.html" className="transition-colors duration-150" onMouseEnter={(e) => { (e.target as HTMLElement).style.color = '#FF6A00' }} onMouseLeave={(e) => { (e.target as HTMLElement).style.color = '#8a8f98' }}>Kebijakan Privasi</a>
             <a href="#" className="transition-colors duration-150" onMouseEnter={(e) => { (e.target as HTMLElement).style.color = '#e7e9ee' }} onMouseLeave={(e) => { (e.target as HTMLElement).style.color = '#8a8f98' }}>Syarat & Ketentuan</a>
           </div>
         </div>
